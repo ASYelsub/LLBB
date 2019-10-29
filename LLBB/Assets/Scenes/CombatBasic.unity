@@ -1230,6 +1230,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1302,6 +1303,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0757cfada072aca4a8f504c4dc7910d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1004071381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1531,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1110181943}
   - component: {fileID: 1110181942}
+  - component: {fileID: 1110181944}
+  - component: {fileID: 1110181946}
+  - component: {fileID: 1110181948}
+  - component: {fileID: 1110181945}
   m_Layer: 2
   m_Name: CharacterManager
   m_TagString: Untagged
@@ -1542,6 +1559,7 @@ MonoBehaviour:
   - {fileID: 1312577968}
   - {fileID: 1790939056}
   - {fileID: 9800719}
+  charInt: 0
 --- !u!4 &1110181943
 Transform:
   m_ObjectHideFlags: 0
@@ -1556,6 +1574,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1110181944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110181941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636c2d33afea5704b83705c7e8ca4354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeCharMovement: {fileID: 1110181942}
+--- !u!114 &1110181945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110181941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5403cae289c7ecb429c6b971bf9b7b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeCharMovement: {fileID: 1110181942}
+--- !u!114 &1110181946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110181941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625aff6b38295a642a25f008734f0d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeCharMovement: {fileID: 1110181942}
+--- !u!114 &1110181948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110181941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3e613a4f68df148b1a82d4bbe7f12d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeCharMovement: {fileID: 1110181942}
 --- !u!1 &1179884905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1902,7 @@ MonoBehaviour:
   characterSelectTwo: {fileID: 1004071383}
   characterSelectThree: {fileID: 1783817233}
   characterSelectFour: {fileID: 1847979550}
-  activeCharacter: {fileID: 1110181941}
+  activeCharacter: {fileID: 894731443}
 --- !u!1 &1482425312
 GameObject:
   m_ObjectHideFlags: 0

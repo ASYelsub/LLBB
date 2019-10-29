@@ -10,17 +10,31 @@ public class ActiveCharMovement : MonoBehaviour
     Transform activeTransform;
     //public Transform oldTransform;
     //public Transform newTransform;
-    bool isMoving = false;
     Vector3[] destinationVect = new Vector3[]{
         Vector3.zero,
         Vector3.zero,
         Vector3.zero,
         Vector3.zero
     };
-    
-    
+
+    float[] currentSpeed = new float[4];
     void Start(){
         activeTransform = charTransform[0];
+        
+    }
+    public void getCharacterSpeed(string characterName, float characterSpeed){
+        if(characterName == "Vesuvius"){
+            currentSpeed[0] = characterSpeed;
+        }
+        else if (characterName == "Carmeline"){
+            currentSpeed[1] = characterSpeed;
+        }
+        else if (characterName == "Bobby"){
+            currentSpeed[2] = characterSpeed;            
+        }
+        else if (characterName == "Urania"){
+            currentSpeed[3] = characterSpeed;
+        }
     }
     public void setActiveCharacter(int charInt){
         this.charInt = charInt - 1;
@@ -49,8 +63,8 @@ public class ActiveCharMovement : MonoBehaviour
         //if (isMoving){
             for(int i = 0; i < 4; i++ ){
             if (destinationVect[i] != Vector3.zero){
-                charTransform[i].position = Vector3.MoveTowards(charTransform[i].position,destinationVect[i],0.01f);
-                if(Vector3.Distance(activeTransform.position,destinationVect[i]) < 1f){
+                charTransform[i].position = Vector3.MoveTowards(charTransform[i].position,destinationVect[i],currentSpeed[i]);
+                if(Vector3.Distance(activeTransform.position,destinationVect[i]) < 0.1f){
                     destinationVect[i] = Vector3.zero;
                     }
                 }
