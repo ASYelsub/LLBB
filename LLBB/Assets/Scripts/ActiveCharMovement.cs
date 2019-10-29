@@ -8,6 +8,7 @@ public class ActiveCharMovement : MonoBehaviour
     public int charInt;
     //bool char1Moving;
     Transform activeTransform;
+    bool gamePaused = false;
 
     //public Transform oldTransform;
     //public Transform newTransform;
@@ -76,24 +77,32 @@ public class ActiveCharMovement : MonoBehaviour
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
-            RayCastBaby();      
-        }
+        if(!gamePaused){
             
-        //Debug.Log("RaycastHit = " + rayHit.point);
-        //Debug.Log(isMoving);
-        //if (isMoving){
-            for(int i = 0; i < 4; i++ ){
-            if (destinationVect[i] != Vector3.zero){
-                charTransform[i].position = Vector3.MoveTowards(charTransform[i].position,destinationVect[i],currentSpeed[i]);
-                targetTransform[i].position = destinationVect[i];//targetPrefab.Instantiate
-                
-                if(Vector3.Distance(activeTransform.position,destinationVect[i]) < 0.1f){
-                    destinationVect[i] = Vector3.zero;
-                    }
+                if(Input.GetKeyDown(KeyCode.Mouse0)){
+                RayCastBaby();      
                 }
+                
+                for(int i = 0; i < 4; i++ ){
+                    if (destinationVect[i] != Vector3.zero){
+                        charTransform[i].position = Vector3.MoveTowards(charTransform[i].position,destinationVect[i],currentSpeed[i]);
+                        targetTransform[i].position = destinationVect[i];//targetPrefab.Instantiate
+                        if(Vector3.Distance(activeTransform.position,destinationVect[i]) < 0.1f){
+                            destinationVect[i] = Vector3.zero;
+                        }
+                    }
+                if(Input.GetKeyDown(KeyCode.Space)){
+                gamePaused = true;}
             }
             
+            
+        }
+        else if (gamePaused){
+            if(Input.GetKeyDown(KeyCode.Space)){
+                gamePaused = false;
+            }
+        }
+        
         //}     
     }
     void RayCastBaby(){
