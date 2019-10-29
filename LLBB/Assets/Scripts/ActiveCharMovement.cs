@@ -8,6 +8,7 @@ public class ActiveCharMovement : MonoBehaviour
     public int charInt;
     //bool char1Moving;
     Transform activeTransform;
+
     //public Transform oldTransform;
     //public Transform newTransform;
     Vector3[] destinationVect = new Vector3[]{
@@ -16,10 +17,15 @@ public class ActiveCharMovement : MonoBehaviour
         Vector3.zero,
         Vector3.zero
     };
-
+    public Transform[] targetTransform = new Transform[4];
+    public SpriteRenderer[] targetSR = new SpriteRenderer[4];
     float[] currentSpeed = new float[4];
     void Start(){
         activeTransform = charTransform[0];
+            targetSR[0].enabled = true;
+            targetSR[1].enabled = true;
+            targetSR[2].enabled = true;
+            targetSR[3].enabled = true;
         
     }
     public void getCharacterSpeed(string characterName, float characterSpeed){
@@ -40,22 +46,38 @@ public class ActiveCharMovement : MonoBehaviour
         this.charInt = charInt - 1;
         if (charInt == 1){
             activeTransform = charTransform[0];
+                targetSR[0].enabled = true;
+                targetSR[1].enabled = false;
+                targetSR[2].enabled = false;
+                targetSR[3].enabled = false;
         }
         if (charInt == 2){
             activeTransform = charTransform[1];
+                targetSR[0].enabled = false;
+                targetSR[1].enabled = true;
+                targetSR[2].enabled = false;
+                targetSR[3].enabled = false;
         }
         if (charInt == 3){
             activeTransform = charTransform[2];
+                targetSR[0].enabled = false;
+                targetSR[1].enabled = false;
+                targetSR[2].enabled = true;
+                targetSR[3].enabled = false;
         }
         if (charInt == 4){
-            activeTransform = charTransform[3];
+            activeTransform = charTransform[3];    
+                targetSR[0].enabled = false;
+                targetSR[1].enabled = false;
+                targetSR[2].enabled = false;
+                targetSR[3].enabled = true;
         }
          Debug.Log("setActiveCharacter is triggered by" + charInt);
     }
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.Mouse0)){
-            RayCastBaby();
+            RayCastBaby();      
         }
             
         //Debug.Log("RaycastHit = " + rayHit.point);
@@ -64,6 +86,8 @@ public class ActiveCharMovement : MonoBehaviour
             for(int i = 0; i < 4; i++ ){
             if (destinationVect[i] != Vector3.zero){
                 charTransform[i].position = Vector3.MoveTowards(charTransform[i].position,destinationVect[i],currentSpeed[i]);
+                targetTransform[i].position = destinationVect[i];//targetPrefab.Instantiate
+                
                 if(Vector3.Distance(activeTransform.position,destinationVect[i]) < 0.1f){
                     destinationVect[i] = Vector3.zero;
                     }
