@@ -5,8 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     Transform cameraTransform;
+    public Transform pivotTransform;
     int cameraState; // 0 = top down, 1 = 45 degrees
     float cameraLerpSpeed = 1;
+    float parentRoatation;
     void Start()
     {
         cameraState = 0;
@@ -16,6 +18,12 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        float mouseX = Input.GetAxis("Mouse X");
+        Vector3 mouseInput = new Vector3(0f,mouseX*10f,0f);
+        if(Input.GetKey(KeyCode.Mouse1)){
+            transform.parent.Rotate(mouseInput);
+            parentRoatation = transform.parent.rotation.y;
+        }
         if(Input.GetKeyDown(KeyCode.Tab) && cameraState == 0){
             changeCamera(0);
         }
@@ -25,6 +33,7 @@ public class CameraController : MonoBehaviour
     }
 
     public void changeCamera(int cameraNumber){
+        float mouseX = Input.GetAxis("Mouse X");
         if(cameraNumber == 0){
         //to 45 degrees one
             float yPos = 6;
@@ -33,7 +42,7 @@ public class CameraController : MonoBehaviour
             cameraTransform.position = Vector3.Lerp(transform.position,goTo,cameraLerpSpeed);
 
             float degrees = 45;
-            Vector3 to = new Vector3(degrees,0,0);
+            Vector3 to = new Vector3(degrees,parentRoatation,0);
             cameraTransform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, cameraLerpSpeed);
             cameraState = 1;
         }
@@ -44,7 +53,7 @@ public class CameraController : MonoBehaviour
             Vector3 goTo = new Vector3(0,yPos,zPos);
             cameraTransform.position = Vector3.Lerp(transform.position,goTo,cameraLerpSpeed);
             float degrees = 90;
-            Vector3 to = new Vector3(degrees,0,0);
+            Vector3 to = new Vector3(degrees,parentRoatation,0);
             cameraTransform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, cameraLerpSpeed);
             cameraState = 0;
         }
