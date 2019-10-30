@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
             cameraTransform.position = Vector3.Lerp(transform.position,goTo,cameraLerpSpeed);
 
             float degrees = 45;
-            Vector3 to = new Vector3(degrees,parentRoatation,0);
+            Vector3 to = new Vector3(degrees,0,0);
             cameraTransform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, cameraLerpSpeed);
             cameraState = 1;
         }
@@ -53,7 +53,7 @@ public class CameraController : MonoBehaviour
             Vector3 goTo = new Vector3(0,yPos,zPos);
             cameraTransform.position = Vector3.Lerp(transform.position,goTo,cameraLerpSpeed);
             float degrees = 90;
-            Vector3 to = new Vector3(degrees,parentRoatation,0);
+            Vector3 to = new Vector3(degrees,0,0);
             cameraTransform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, cameraLerpSpeed);
             cameraState = 0;
         }
