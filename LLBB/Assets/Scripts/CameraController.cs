@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X");
         Vector3 mouseInput = new Vector3(0f,mouseX*10f,0f);
+
         if(Input.GetKey(KeyCode.Mouse1)){
             transform.parent.Rotate(mouseInput);
             parentRoatation = transform.parent.rotation.y;
