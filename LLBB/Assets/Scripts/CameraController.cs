@@ -71,12 +71,14 @@ public class CameraController : MonoBehaviour
         //to top down
         //Transform.LookAt
             float yPos = 10;
-            float zPos = 0;
-            Vector3 goTo = new Vector3(0,yPos,zPos);
+            float zPos = -Mathf.Sin(cameraTransform.eulerAngles.y);
+            float xPos = Mathf.Cos(cameraTransform.eulerAngles.y);
+            Vector3 goTo = new Vector3(xPos,yPos,zPos);
             cameraTransform.position = Vector3.Lerp(transform.position,goTo,cameraLerpSpeed);
+            
             float degrees = 90;
             Vector3 to = new Vector3(degrees,cameraTransform.eulerAngles.y,0);
-            cameraTransform.parent.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, cameraLerpSpeed);
+            cameraTransform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, cameraLerpSpeed);
             cameraState = 0;
         }
 
