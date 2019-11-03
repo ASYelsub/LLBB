@@ -13,6 +13,7 @@ public class CharacterSelector : MonoBehaviour
     
 
     public void SelectCharacter(Button selectCharacter){
+        Debug.Log("Button Pressed");
         if(selectCharacter == characterSelectOne){
             Debug.Log("Character1");
             activeCharMovement.setActiveCharacter(1);

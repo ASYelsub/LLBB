@@ -8,9 +8,8 @@ public class NewCameraController : MonoBehaviour
     Vector3 storedRotation;
     int cameraState;
 
-
     void Start(){
-        cameraState = 0;
+        cameraState = 1;
     }
     void Update()
     {
@@ -40,7 +39,7 @@ public class NewCameraController : MonoBehaviour
 
 
         if(Input.GetKeyDown(KeyCode.Tab) && cameraState == 0){
-            Debug.Log(cameraState);
+            //Debug.Log(cameraState);
                 float degrees = 90;
                 Vector3 goTo = new Vector3(0,10,0);
                 Vector3 to = new Vector3(degrees,storedRotation.y,0);
@@ -49,7 +48,7 @@ public class NewCameraController : MonoBehaviour
                 CameraStateSwitcher(0);
             }
         else if (Input.GetKeyDown(KeyCode.Tab) && cameraState == 1){
-            Debug.Log(cameraState);
+            //Debug.Log(cameraState);
                 float degrees = 45;
                 Vector3 goTo = new Vector3(0,6,-8);
                 Vector3 to = new Vector3(degrees,storedRotation.y,0);
@@ -67,6 +66,6 @@ public class NewCameraController : MonoBehaviour
         if(stateSwitch == 1){
             cameraState = 0;
         }
-        Debug.Log("State Switched");
+        //Debug.Log("State Switched");
     }
 }

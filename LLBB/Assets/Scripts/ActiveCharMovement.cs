@@ -18,6 +18,7 @@ public class ActiveCharMovement : MonoBehaviour
         Vector3.zero,
         Vector3.zero
     };
+
     public Transform[] targetTransform = new Transform[4];
     public SpriteRenderer[] targetSR = new SpriteRenderer[4];
     float[] currentSpeed = new float[4];
@@ -98,6 +99,10 @@ public class ActiveCharMovement : MonoBehaviour
             
         }
         else if (gamePaused){
+            if(Input.GetKeyDown(KeyCode.Mouse0)){
+                RayCastBaby();
+                targetTransform[charInt].position = destinationVect[charInt];
+            }
             if(Input.GetKeyDown(KeyCode.Space)){
                 gamePaused = false;
             }
@@ -106,18 +111,21 @@ public class ActiveCharMovement : MonoBehaviour
         //}     
     }
     void RayCastBaby(){
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float mouseRayDistance = 10000f;
-        RaycastHit rayHit = new RaycastHit();
-        Debug.DrawRay(mouseRay.origin, mouseRay.direction*mouseRayDistance,Color.yellow);
-        if(Physics.Raycast(mouseRay,out rayHit,mouseRayDistance)){    
-                   //save old "active transform"
-                   
-                   //isMoving = true;
-                   destinationVect[charInt] = new Vector3(rayHit.point.x,0f,rayHit.point.z);
-                   Debug.Log("tempVect = " + destinationVect[charInt].x + "," + destinationVect[charInt].z);
-                   //find new "active transform" through rayHit.position    
-                   //lerp between the two over void Update               
+   
+            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            float mouseRayDistance = 10000f;
+            RaycastHit rayHit = new RaycastHit();
+            Debug.DrawRay(mouseRay.origin, mouseRay.direction*mouseRayDistance,Color.yellow);
+            if(Physics.Raycast(mouseRay,out rayHit,mouseRayDistance)){    
+                    //save old "active transform"
+                    
+                    //isMoving = true;
+                    destinationVect[charInt] = new Vector3(rayHit.point.x,0f,rayHit.point.z);
+                    Debug.Log("tempVect = " + destinationVect[charInt].x + "," + destinationVect[charInt].z);
+                    //find new "active transform" through rayHit.position    
+                    //lerp between the two over void Update               
+
+        
              
         } 
     }
