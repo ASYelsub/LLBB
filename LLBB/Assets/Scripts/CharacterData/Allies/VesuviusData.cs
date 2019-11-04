@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class VesuviusData : MonoBehaviour
 {
-    string characterName = "Vesuvius";
-    float characterSpeed = .15f;
+    public static string characterName = "Vesuvius";
+    public static float characterSpeed = .15f;
     public ActiveCharMovement activeCharMovement;
 
     void Update(){

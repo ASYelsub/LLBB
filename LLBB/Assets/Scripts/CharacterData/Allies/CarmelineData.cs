@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CarmelineData : MonoBehaviour
 {
-    string characterName = "Carmeline";
-    float characterSpeed = .20f;
+    public static string characterName = "Carmeline";
+    public static float characterSpeed = .20f;
     public ActiveCharMovement activeCharMovement;
 
     void Update(){

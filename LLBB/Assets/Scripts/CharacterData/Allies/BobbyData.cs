@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BobbyData : MonoBehaviour
 {
-    string characterName = "Bobby";
-    float characterSpeed = .05f;
+    public static string characterName = "Bobby";
+    public static float characterSpeed = .05f;
     public ActiveCharMovement activeCharMovement;
 
     void Update(){

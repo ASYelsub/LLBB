@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class UraniaData : MonoBehaviour
 {
-    string characterName = "Urania";
-    float characterSpeed = .30f;
+    public static string characterName = "Urania";
+    public static float characterSpeed = .30f;
     public ActiveCharMovement activeCharMovement;
 
     void Update(){
