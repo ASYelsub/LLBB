@@ -6,15 +6,16 @@ using UnityEngine.UI;
 public class PickChar : MonoBehaviour
 {
     public Transform activeCharTransform;
-    public bool hoverOver = false;
-    public bool charPicked = false;
+    public bool hoverOverDragable = false;
+    public bool dragableHeld = false;
     public Camera cam;
     public Vector3 mousePos;
     public Vector3 originalPos;
     public Transform charButton1, charButton2, charButton3, charButton4;
-    int mouseOverNumber;
+    int mouseOverNumber = 0;
     public Text char1Text, char2Text, char3Text, char4Text;
     public bool letGo = false;
+    int heldNumber = 0;
    
     public void Awake()
     {
@@ -22,11 +23,11 @@ public class PickChar : MonoBehaviour
     }
     public void Update()
     {
-        if (charPicked == true)
+        if (dragableHeld == true)
         {
             activeCharTransform.position = Input.mousePosition;
         }
-        else
+        else if(dragableHeld == false || hoverOverDragable == false)
         {
             activeCharTransform.position = originalPos;
         }
@@ -34,106 +35,57 @@ public class PickChar : MonoBehaviour
 
     public void MouseHover()
     {
-        hoverOver = true;
+        hoverOverDragable = true;
     }
     public void MouseNotHover()
     {
-        hoverOver = false;
+        hoverOverDragable = false;
     }
     public void OnMouseDown()
     {
-        charPicked = true;
+        dragableHeld = true;
+        letGo = false;
     }
     public void OnMouseUp()
     {
-        if (mouseOverNumber != 1 || mouseOverNumber != 2 || mouseOverNumber != 3 || mouseOverNumber != 4)
-        {
-            mouseOverNumber = 0;
-        }
-        letGo = true;
+        dragableHeld = false;
+       //mouseOverNumber = 0;
+       //Debug.Log("This runs");
+       letGo = true;
+        SetChar();
     }
-    public void MouseOver1()
+  
+    public void OverChar(int i)
     {
-        if (charPicked == true)
+        if (dragableHeld == true)
         {
-            mouseOverNumber = 1;
-            char1Text.text = "hi";
-            //SelectAction(1);
-            Debug.Log("MouseOver1");
+            Debug.Log("OverChar plus letGo");
+            if (i == 1)
+            { heldNumber = 1; }
+            if (i == 2)
+            { heldNumber = 2; }
+            if (i == 3)
+            { heldNumber = 3; }
+            if (i == 4)
+            { heldNumber = 4; }
+            if (i == 0) //on exit from char buttons set i as 0
+            { heldNumber = 0; }
         }
 
     }
-    public void MouseOver2()
+    void SetChar()
     {
-        if(charPicked == true)
-        {
-            mouseOverNumber = 2;
-            char2Text.text = "hi";
-            //SelectAction(2);
-            Debug.Log("MouseOver2");
-        }
-    }
-    public void MouseOver3()
-    {
-        if(charPicked == true)
-        {
-            mouseOverNumber = 3;
-            char3Text.text = "hi";
-            //SelectAction(3);
-            Debug.Log("MouseOver3");
-        }
-
-    }
-    public void MouseOver4()
-    {
-        if(charPicked == true)
-        {
-            mouseOverNumber = 4;
-            //SelectAction(4);
-            char4Text.text = "hi";
-            Debug.Log("MouseOver4");
-        }
-
-    }
-   public void SelectAction()
-    {
-        //if i = character 1,2,3,4... assign that character
-        //if i = the original position or not one of those characters, charPicked = false;
-        if (letGo == true)
-        {
-            if (mouseOverNumber == 1)
-            {
-                char1Text.text = "hi";
-                char2Text.text = "2";
-                char3Text.text = "3";
-                char4Text.text = "4";
-            }
-            else if (mouseOverNumber == 2)
-            {
-                char1Text.text = "1";
-                char2Text.text = "hi";
-                char3Text.text = "3";
-                char4Text.text = "4";
-            }
-            else if (mouseOverNumber == 3)
-            {
-                char1Text.text = "1";
-                char2Text.text = "2";
-                char3Text.text = "hi";
-                char4Text.text = "4";
-            }
-            else if (mouseOverNumber == 1)
-            {
-                char1Text.text = "1";
-                char2Text.text = "2";
-                char3Text.text = "3";
-                char4Text.text = "hi";
-            }
-            else if (mouseOverNumber == 0)
-            {
-                charPicked = false;
-            }
-        }
+        
+        if (heldNumber == 1)
+        { char1Text.text = "hi";char2Text.text = "C2";char3Text.text = "C3"; char4Text.text = "C4"; }
+        if (heldNumber == 2)
+        { char1Text.text = "C1"; char2Text.text = "hi"; char3Text.text = "C3"; char4Text.text = "C4"; }
+        if (heldNumber == 3)
+        { char1Text.text = "C1"; char2Text.text = "C2"; char3Text.text = "hi"; char4Text.text = "C4"; }
+        if (heldNumber == 4)
+        { char1Text.text = "C1"; char2Text.text = "C2"; char3Text.text = "C3"; char4Text.text = "hi"; }
+        if (heldNumber == 0)
+        { char1Text.text = "C1"; char2Text.text = "C2"; char3Text.text = "C3"; char4Text.text = "C4"; }
     }
 
     public void BeginGame()
