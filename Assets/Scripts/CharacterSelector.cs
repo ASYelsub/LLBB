@@ -10,7 +10,11 @@ public class CharacterSelector : MonoBehaviour
     //Intent: select active character GameObject
     public Button characterSelectOne,characterSelectTwo,characterSelectThree,characterSelectFour;
     public GameObject activeCharacter;
-    
+
+    public void BeginGame()
+    {
+        this.gameObject.SetActive(false);
+    }
 
     public void SelectCharacter(Button selectCharacter){
         Debug.Log("Button Pressed");
