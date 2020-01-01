@@ -19,6 +19,7 @@ public class PickChar : MonoBehaviour
     Vector3 originalPos;
     int heldNumber = 0;
     public Text[] activeStat = new Text[9];
+    public GameObject[] infoBoxes = new GameObject[9];
    
     public void Awake(){
         activeName.text = charNames[characterNumber];
@@ -28,11 +29,30 @@ public class PickChar : MonoBehaviour
         selectedCharacters[1] = "C2";
         selectedCharacters[2] = "C3";
         selectedCharacters[3] = "C4";
-
+            activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+            activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
+            activeStat[2].text = ourStatStorage.whamitude[characterNumber].ToString();
+            activeStat[3].text = ourStatStorage.popularity[characterNumber].ToString();
+            activeStat[4].text = ourStatStorage.schoolSpirit[characterNumber].ToString();
+            activeStat[5].text = ourStatStorage.creepiness[characterNumber].ToString();
+            activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
+            activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
+            activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+        infoBoxes[0].SetActive(false);
+        infoBoxes[1].SetActive(false);
+        infoBoxes[2].SetActive(false);
+        infoBoxes[3].SetActive(false);
+        infoBoxes[4].SetActive(false);
+        infoBoxes[5].SetActive(false);
+        infoBoxes[6].SetActive(false);
+        infoBoxes[7].SetActive(false);
+        infoBoxes[8].SetActive(false);
     }
     
     public void Update(){
         //Debug.Log(characterNumber);
+        //activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+        //Debug.Log(ourStatStorage.health[characterNumber].ToString());
         mousePos = new Vector3(Input.mousePosition.x,Input.mousePosition.y,-1);
         if (dragableHeld == true){
             activeCharTransform.position = mousePos;}
@@ -45,22 +65,54 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
         if(direction == 1 && characterNumber < charNames.Length - 1){
             characterNumber++;
             activeName.text = charNames[characterNumber];
-            activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+                activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+                activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
+                activeStat[2].text = ourStatStorage.whamitude[characterNumber].ToString();
+                activeStat[3].text = ourStatStorage.popularity[characterNumber].ToString();
+                activeStat[4].text = ourStatStorage.schoolSpirit[characterNumber].ToString();
+                activeStat[5].text = ourStatStorage.creepiness[characterNumber].ToString();
+                activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
+                activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
+                activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
         }
         else if(direction == 1 && characterNumber == charNames.Length - 1){
             characterNumber = 0;
             activeName.text = charNames[characterNumber];
-            activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+                activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+                activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
+                activeStat[2].text = ourStatStorage.whamitude[characterNumber].ToString();
+                activeStat[3].text = ourStatStorage.popularity[characterNumber].ToString();
+                activeStat[4].text = ourStatStorage.schoolSpirit[characterNumber].ToString();
+                activeStat[5].text = ourStatStorage.creepiness[characterNumber].ToString();
+                activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
+                activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
+                activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
         }
         if(direction == 0 && characterNumber > 0){
             characterNumber --;
             activeName.text = charNames[characterNumber];
-            activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+                activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+                activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
+                activeStat[2].text = ourStatStorage.whamitude[characterNumber].ToString();
+                activeStat[3].text = ourStatStorage.popularity[characterNumber].ToString();
+                activeStat[4].text = ourStatStorage.schoolSpirit[characterNumber].ToString();
+                activeStat[5].text = ourStatStorage.creepiness[characterNumber].ToString();
+                activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
+                activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
+                activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
         }
         else if(direction == 0 && characterNumber == 0){
             characterNumber = 8;
             activeName.text = charNames[characterNumber];
-            activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+                activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+                activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
+                activeStat[2].text = ourStatStorage.whamitude[characterNumber].ToString();
+                activeStat[3].text = ourStatStorage.popularity[characterNumber].ToString();
+                activeStat[4].text = ourStatStorage.schoolSpirit[characterNumber].ToString();
+                activeStat[5].text = ourStatStorage.creepiness[characterNumber].ToString();
+                activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
+                activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
+                activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
         }
         
     }
@@ -125,7 +177,12 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
               charText[3].text = activeName.text; }
     }
 
-    
+    public void DisplayInfoBox(int statNumber){
+        infoBoxes[statNumber].SetActive(true);
+    }
+    public void CloseInfoBox(int statNumber){
+        infoBoxes[statNumber].SetActive(false);
+    }    
 
     //closing menu
     public void BeginGame(){
