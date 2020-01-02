@@ -9,6 +9,7 @@ public class PickChar : MonoBehaviour
     public Transform activeCharTransform;
     public Camera cam;
     public Text[] charText = new Text[4];
+    public Sprite[] charSprites = new Sprite[9];
     int characterNumber = 0;
     string[] selectedCharacters = new string[4];
     public string[] charNames = new string[9];
@@ -20,10 +21,15 @@ public class PickChar : MonoBehaviour
     int heldNumber = 0;
     public Text[] activeStat = new Text[9];
     public GameObject[] infoBoxes = new GameObject[9];
+    public Image characterPicture;
+
+    public Image statDisplay, movesDisplay;
+
    
     public void Awake(){
         activeName.text = charNames[characterNumber];
         activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+        characterPicture.sprite = charSprites[characterNumber];
         originalPos = activeCharTransform.position;
         selectedCharacters[0] = "C1";
         selectedCharacters[1] = "C2";
@@ -53,6 +59,7 @@ public class PickChar : MonoBehaviour
         //Debug.Log(characterNumber);
         //activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
         //Debug.Log(ourStatStorage.health[characterNumber].ToString());
+        //Debug.Log(heldNumber);
         mousePos = new Vector3(Input.mousePosition.x,Input.mousePosition.y,-1);
         if (dragableHeld == true){
             activeCharTransform.position = mousePos;}
@@ -62,8 +69,10 @@ public class PickChar : MonoBehaviour
 
 //click "arrow buttons" to switch from character to character
 public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
+        heldNumber = 0;
         if(direction == 1 && characterNumber < charNames.Length - 1){
             characterNumber++;
+            characterPicture.sprite = charSprites[characterNumber];
             activeName.text = charNames[characterNumber];
                 activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
                 activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
@@ -77,6 +86,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
         }
         else if(direction == 1 && characterNumber == charNames.Length - 1){
             characterNumber = 0;
+            characterPicture.sprite = charSprites[characterNumber];
             activeName.text = charNames[characterNumber];
                 activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
                 activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
@@ -90,6 +100,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
         }
         if(direction == 0 && characterNumber > 0){
             characterNumber --;
+            characterPicture.sprite = charSprites[characterNumber];
             activeName.text = charNames[characterNumber];
                 activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
                 activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
@@ -103,6 +114,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
         }
         else if(direction == 0 && characterNumber == 0){
             characterNumber = 8;
+            characterPicture.sprite = charSprites[characterNumber];
             activeName.text = charNames[characterNumber];
                 activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
                 activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
@@ -175,6 +187,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
               charText[1].text = selectedCharacters[1]; 
               charText[2].text = selectedCharacters[2]; 
               charText[3].text = activeName.text; }
+        
     }
 
     public void DisplayInfoBox(int statNumber){
@@ -183,7 +196,10 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
     public void CloseInfoBox(int statNumber){
         infoBoxes[statNumber].SetActive(false);
     }    
+    //change stat menu THIS IS WHAT YOURE WORKING ON
+    public void ChangeStatMenu(int someNumber){ //0 = left, 1 = right
 
+    }
     //closing menu
     public void BeginGame(){
         //triggered by pressing start button

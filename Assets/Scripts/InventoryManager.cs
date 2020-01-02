@@ -7,17 +7,21 @@ public class InventoryManager : MonoBehaviour
     int actStr,actWis,actChar,actFort,actInt,actAgil,actStam,actEnd;
     public ActiveCharMovement activeCharMovement;
     public GameObject stats, skills, gear;
-    public Canvas myCanvas;
+    public GameObject myCanvas;
+    public bool isCanvasOn = true;
     public void Update(){
-        if(Input.GetKeyDown(KeyCode.Escape) && myCanvas.enabled == false){
-            myCanvas.enabled = true;
+
+        if(Input.GetKeyDown(KeyCode.Escape) && isCanvasOn == false){
+            myCanvas.SetActive(true);
+            isCanvasOn = true;
         }
-        else if(Input.GetKeyDown(KeyCode.Escape) && myCanvas.enabled == true){
-            myCanvas.enabled = false;
+        else if(Input.GetKeyDown(KeyCode.Escape) && isCanvasOn == true){
+            myCanvas.SetActive(false);
+            isCanvasOn = false;
         }
     }
     public void CloseInventory(){
-        myCanvas.enabled = false;
+        myCanvas.SetActive(false);
     }
     public void OpenSubInventory(int i){
         if(i == 0){ //skills
