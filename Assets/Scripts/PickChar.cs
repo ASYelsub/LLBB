@@ -23,10 +23,17 @@ public class PickChar : MonoBehaviour
     public GameObject[] infoBoxes = new GameObject[9];
     public Image characterPicture;
 
-    public Image statDisplay, movesDisplay;
+    public int currentMenu; //0 = stats, 1 = skills, 2 = gear
+    public Text menuName;
+    public string[] menuNames = new string[3]; //0 = stats, 1 = skills, 2 = gear
+
+    public GameObject statDisplay, movesDisplay, gearDisplay;
 
    
     public void Awake(){
+        menuNames[0] = "Stats";
+        menuNames[1] = "Skills";
+        menuNames[2] = "Gear";
         activeName.text = charNames[characterNumber];
         activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
         characterPicture.sprite = charSprites[characterNumber];
@@ -198,7 +205,36 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
     }    
     //change stat menu THIS IS WHAT YOURE WORKING ON
     public void ChangeStatMenu(int someNumber){ //0 = left, 1 = right
-
+        if(someNumber == 1 && currentMenu < menuNames.Length -1){
+            currentMenu++;
+        }
+        else if(someNumber == 1 && currentMenu == menuNames.Length -1){
+            currentMenu = 0;
+        }
+        if(someNumber == 0 && currentMenu > 0){
+            currentMenu--;
+        }
+        else if (someNumber == 0 && currentMenu == 0){
+            currentMenu = 2;
+        }
+        if(currentMenu == 0){
+            statDisplay.SetActive(true);
+            movesDisplay.SetActive(false);
+            gearDisplay.SetActive(false);
+            menuName.text = menuNames[0];
+        }
+        if(currentMenu == 1){
+            statDisplay.SetActive(false);
+            movesDisplay.SetActive(true);
+            gearDisplay.SetActive(false);
+            menuName.text = menuNames[1];
+        }
+        if(currentMenu == 2){
+            statDisplay.SetActive(false);
+            movesDisplay.SetActive(false);
+            gearDisplay.SetActive(true);
+            menuName.text = menuNames[2];
+        }
     }
     //closing menu
     public void BeginGame(){
