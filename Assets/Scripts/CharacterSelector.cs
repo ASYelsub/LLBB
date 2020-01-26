@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+//USAGE: this lets you click on character bubbles during combat to change who you are playing as, works with buttons
 public class CharacterSelector : MonoBehaviour
 {
     public ActiveCharMovement activeCharMovement;

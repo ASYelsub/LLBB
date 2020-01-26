@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//this thing lets you move characters by clicking on the screen via raycast
 public class ActiveCharMovement : MonoBehaviour
 {
     public Transform[] charTransform = new Transform[4];
@@ -30,6 +32,8 @@ public class ActiveCharMovement : MonoBehaviour
             targetSR[3].enabled = true;
         
     }
+
+    //need to update these names to not these characters
     public void getCharacterSpeed(string characterName, float characterSpeed){
         if(characterName == "Vesuvius"){
             currentSpeed[0] = characterSpeed;
@@ -127,6 +131,7 @@ public class ActiveCharMovement : MonoBehaviour
 
         
              
-        } 
+            }
+            if(Physics.Raycast(mouseRay,out rayHit))
     }
 }
