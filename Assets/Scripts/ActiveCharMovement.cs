@@ -132,6 +132,6 @@ public class ActiveCharMovement : MonoBehaviour
         
              
             }
-            if(Physics.Raycast(mouseRay,out rayHit))
+            //if(Physics.Raycast(mouseRay,out rayHit))
     }
 }
