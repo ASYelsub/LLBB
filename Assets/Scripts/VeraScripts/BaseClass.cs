@@ -34,6 +34,24 @@ public struct CombatStatSetting
 	public float GenerateStat(){ return Mathf.Ceil(Random.Range(5f, StatMaxValue)) + StatBonus;}
 }
 
+[System.Serializable]
+public struct CombatStat
+{
+    public StatType CombatStatType;
+    public float CurrentValue;
+
+    public CombatStat(StatType t, BaseUnit u)
+    {
+        CombatStatType = t;
+        CurrentValue = u.UnitStats[t];
+    }
+
+    public void SetToMax(BaseUnit u)
+    {
+        CurrentValue = u.UnitStats[CombatStatType];
+    }
+}
+
 public enum StatType
 {
     NONE = 0,
@@ -47,3 +65,4 @@ public enum StatType
     INDEPENDENCE = 8,
     EMPATHY = 9
 }
+

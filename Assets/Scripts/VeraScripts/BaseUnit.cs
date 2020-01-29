@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class BaseUnit : MonoBehaviour
 	public BaseClass UnitType;
 	public Dictionary<StatType, float> UnitStats;
 
+    public CombatStat CurrentHP;
+    public CombatStat CurrentStamina;
+
+    public static event Action<BaseUnit> UnitDeath;
+
     void Start()
     {
         //GenerateUnitStats();
@@ -16,7 +22,16 @@ public class BaseUnit : MonoBehaviour
 
     private void Update()
     {
-       
+        if (UnitKilled())
+        {
+            BroadcastUnitDeath();
+        }
+    }
+
+    public void OnDeath()
+    {
+        Debug.Log("Unit has died. Now destroying " + name);
+        Destroy(gameObject);
     }
 
     public void DebugStats(){
@@ -33,7 +48,26 @@ public class BaseUnit : MonoBehaviour
         {
             UnitType.GenerateStats(this);
         }
+
+        CurrentHP = new CombatStat(StatType.HEALTH, this);
+        CurrentStamina = new CombatStat(StatType.STAMINA, this);
     }
+
+    public bool UnitKilled()
+    {
+        return CurrentHP.CurrentValue <= 0;
+    }
+
+    public bool SufficientStamina(float amountNeeded)
+    {
+        return CurrentStamina.CurrentValue >= amountNeeded;
+    }
+
+    void BroadcastUnitDeath()
+    {
+        if (UnitDeath!=null) { UnitDeath(this); }
+    }
+
 }
 [CustomEditor(typeof(BaseUnit))]
 public class UnitEditor: Editor
