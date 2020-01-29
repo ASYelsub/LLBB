@@ -51,6 +51,7 @@ public class PickChar : MonoBehaviour
             activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
             activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
             activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+            activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         infoBoxes[0].SetActive(false);
         infoBoxes[1].SetActive(false);
         infoBoxes[2].SetActive(false);
@@ -60,6 +61,7 @@ public class PickChar : MonoBehaviour
         infoBoxes[6].SetActive(false);
         infoBoxes[7].SetActive(false);
         infoBoxes[8].SetActive(false);
+        infoBoxes[9].SetActive(false);
     }
     
     public void Update(){
@@ -90,6 +92,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
                 activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
                 activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
                 activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+                activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         }
         else if(direction == 1 && characterNumber == charNames.Length - 1){
             characterNumber = 0;
@@ -104,6 +107,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
                 activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
                 activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
                 activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+                activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         }
         if(direction == 0 && characterNumber > 0){
             characterNumber --;
@@ -118,6 +122,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
                 activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
                 activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
                 activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+                activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         }
         else if(direction == 0 && characterNumber == 0){
             characterNumber = 8;
@@ -132,6 +137,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
                 activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
                 activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
                 activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+                activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         }
         
     }

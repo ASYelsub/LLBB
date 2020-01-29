@@ -2492,7 +2492,7 @@ GameObject:
   - component: {fileID: 183447813}
   - component: {fileID: 183447812}
   m_Layer: 5
-  m_Name: EmpathyInfo
+  m_Name: StrutInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5116,7 +5116,7 @@ GameObject:
   - component: {fileID: 442337989}
   - component: {fileID: 442337988}
   m_Layer: 5
-  m_Name: EmpathyText
+  m_Name: StrutText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5585,6 +5585,7 @@ MonoBehaviour:
   skinThickness: 010000000200000003000000040000000500000006000000070000000800000009000000
   independence: 010000000200000003000000040000000500000006000000070000000800000009000000
   empathy: 010000000200000003000000040000000500000006000000070000000800000009000000
+  strut: 010000000200000003000000040000000500000006000000070000000800000009000000
 --- !u!4 &459321236
 Transform:
   m_ObjectHideFlags: 0
@@ -9463,7 +9464,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "How much does ideal range effect this character\u2019s other stats"
+  m_Text: How quickly can this character move
 --- !u!222 &811704457
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10974,7 +10975,7 @@ GameObject:
   - component: {fileID: 932534744}
   - component: {fileID: 932534743}
   m_Layer: 5
-  m_Name: EmpathyText
+  m_Name: StrutText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15563,7 +15564,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 8
+            m_IntArgument: 9
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -15578,7 +15579,7 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 8
+            m_IntArgument: 9
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -17921,6 +17922,7 @@ MonoBehaviour:
   - {fileID: 748512572}
   - {fileID: 402509088}
   - {fileID: 1391698887}
+  - {fileID: 932534744}
   infoBoxes:
   - {fileID: 757037214}
   - {fileID: 1727860050}
@@ -17931,6 +17933,7 @@ MonoBehaviour:
   - {fileID: 1611804528}
   - {fileID: 1445421670}
   - {fileID: 2102859532}
+  - {fileID: 183447810}
   characterPicture: {fileID: 1703636287}
   currentMenu: 0
   menuName: {fileID: 1740009793}
