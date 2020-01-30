@@ -7,6 +7,7 @@ public class NewCameraController : MonoBehaviour
     Vector3 playerClick;
     Vector3 storedRotation;
     int cameraState;
+    public float moveSensitivity;
 
     void Start(){
         cameraState = 1;
@@ -27,15 +28,13 @@ public class NewCameraController : MonoBehaviour
             storedRotation = transform.parent.eulerAngles;
         }
         if(Input.GetMouseButton(2)){
-            Vector3 mouseVector = playerClick + Input.mousePosition; 
-            Debug.Log(mouseVector);
+            transform.parent.transform.Translate(0f, 0f, mouseY*-moveSensitivity);
+            transform.parent.transform.Translate(mouseX*-moveSensitivity, 0f, 0);
         }
         if(Input.GetMouseButtonUp(1)){
             storedRotation = transform.parent.eulerAngles;
             //Debug.Log(storedRotation); //rotation of pivot when last rotated camera
         }
-       
-
 
 
         if(Input.GetKeyDown(KeyCode.Tab) && cameraState == 0){

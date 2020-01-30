@@ -90,9 +90,10 @@ public class ActiveCharMovement : MonoBehaviour
                 
                 for(int i = 0; i < 4; i++ ){
                     if (destinationVect[i] != Vector3.zero){
-                        charTransform[i].position = Vector3.MoveTowards(charTransform[i].position,destinationVect[i],currentSpeed[i]);
+                        Vector3 playerYPlace = new Vector3(destinationVect[i].x, 0f, destinationVect[i].z);
+                        charTransform[i].position = Vector3.MoveTowards(charTransform[i].position,playerYPlace,currentSpeed[i]);
                         targetTransform[i].position = destinationVect[i];//targetPrefab.Instantiate
-                        if(Vector3.Distance(activeTransform.position,destinationVect[i]) < 0.1f){
+                        if(Vector3.Distance(activeTransform.position,destinationVect[i]) < 0.001f){
                             destinationVect[i] = Vector3.zero;
                         }
                     }
@@ -124,7 +125,7 @@ public class ActiveCharMovement : MonoBehaviour
                     //save old "active transform"
                     
                     //isMoving = true;
-                    destinationVect[charInt] = new Vector3(rayHit.point.x,0f,rayHit.point.z);
+                    destinationVect[charInt] = new Vector3(rayHit.point.x,rayHit.point.y,rayHit.point.z);
                     //Debug.Log("tempVect = " + destinationVect[charInt].x + "," + destinationVect[charInt].z);
                     //find new "active transform" through rayHit.position    
                     //lerp between the two over void Update               
