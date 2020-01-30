@@ -22,6 +22,7 @@ public class PickChar : MonoBehaviour
     public Text[] activeStat = new Text[9];
     public GameObject[] infoBoxes = new GameObject[9];
     public Image characterPicture;
+    public GameObject movesHolder;
 
     public int currentMenu; //0 = stats, 1 = skills, 2 = gear
     public Text menuName;
@@ -62,6 +63,7 @@ public class PickChar : MonoBehaviour
         infoBoxes[7].SetActive(false);
         infoBoxes[8].SetActive(false);
         infoBoxes[9].SetActive(false);
+        movesHolder.SetActive(false);
     }
     
     public void Update(){
@@ -246,5 +248,6 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
     public void BeginGame(){
         //triggered by pressing start button
         this.gameObject.SetActive(false);
+        movesHolder.SetActive(true);
     }
 }
