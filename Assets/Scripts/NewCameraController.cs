@@ -8,6 +8,9 @@ public class NewCameraController : MonoBehaviour
     Vector3 storedRotation;
     int cameraState;
     public float moveSensitivity;
+    public Camera thisCamera;
+
+    float fov = 0;
 
     void Start(){
         cameraState = 1;
@@ -36,8 +39,12 @@ public class NewCameraController : MonoBehaviour
             //Debug.Log(storedRotation); //rotation of pivot when last rotated camera
         }
 
+        fov = Camera.main.fieldOfView;
+        fov -= Input.GetAxis("Mouse ScrollWheel") * 10f;
+        fov = Mathf.Clamp(fov, 15f, 100f);
+        Camera.main.fieldOfView = fov;
 
-        if(Input.GetKeyDown(KeyCode.Tab) && cameraState == 0){
+        if (Input.GetKeyDown(KeyCode.Tab) && cameraState == 0){
             //Debug.Log(cameraState);
                 float degrees = 90;
                 Vector3 goTo = new Vector3(0,10,0);
