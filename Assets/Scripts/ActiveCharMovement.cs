@@ -6,6 +6,8 @@ using UnityEngine;
 //this thing lets you move characters by clicking on the screen via raycast
 public class ActiveCharMovement : MonoBehaviour
 {
+
+    public PickChar pickChar;
     public Transform[] charTransform = new Transform[4];
     public int charInt;
     //bool char1Moving;
@@ -82,9 +84,10 @@ public class ActiveCharMovement : MonoBehaviour
     }
 
     void Update(){
+        Debug.Log(pickChar.onChar);
         if(!gamePaused){
             
-                if(Input.GetKeyDown(KeyCode.Mouse0)){
+                if(Input.GetKeyDown(KeyCode.Mouse0) && pickChar.onChar == false){
                 RayCastBaby();      
                 }
                 
@@ -104,7 +107,8 @@ public class ActiveCharMovement : MonoBehaviour
             
         }
         else if (gamePaused){
-            if(Input.GetKeyDown(KeyCode.Mouse0)){
+            if(Input.GetKeyDown(KeyCode.Mouse0) && pickChar.onChar == false)
+            {
                 RayCastBaby();
                 targetTransform[charInt].position = destinationVect[charInt];
             }

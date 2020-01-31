@@ -23,6 +23,7 @@ public class PickChar : MonoBehaviour
     public GameObject[] infoBoxes = new GameObject[9];
     public Image characterPicture;
     public GameObject movesHolder;
+    public bool onChar = false;
 
     public int currentMenu; //0 = stats, 1 = skills, 2 = gear
     public Text menuName;
@@ -169,15 +170,26 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
     public void OverChar(int i){
         if (dragableHeld == true){//Debug.Log("OverChar plus letGo");
             if (i == 1)
-                { heldNumber = 1; }
+                { heldNumber = 1;}
             if (i == 2)
-                { heldNumber = 2; }
+                { heldNumber = 2;}
             if (i == 3)
                 { heldNumber = 3; }
             if (i == 4)
-                { heldNumber = 4; }
+                { heldNumber = 4;}
             if (i == 0) //on exit from char buttons set i as 0
-                { heldNumber = 0; }
+                { heldNumber = 0;}
+        }
+        else if (dragableHeld == false)
+        {
+            if (i >= 1)
+            {
+                onChar = true;
+            }
+            else
+            {
+                onChar = false;
+            }
         }
     }
     //setting who "character" is when let go

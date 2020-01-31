@@ -11709,6 +11709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSensitivity: 3
+  thisCamera: {fileID: 0}
 --- !u!1 &969462750
 GameObject:
   m_ObjectHideFlags: 0
@@ -12804,6 +12805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862547c1cbdd46b48b11bc46b6a8d507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickChar: {fileID: 1456275699}
   charTransform:
   - {fileID: 894731447}
   - {fileID: 1312577968}
