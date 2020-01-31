@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEditor;
+using Random = UnityEngine.Random;
 
 public class BaseUnit : MonoBehaviour
 {
@@ -28,6 +29,14 @@ public class BaseUnit : MonoBehaviour
         }
     }
 
+    public BaseClass[] GetBaseClasses() { return Resources.LoadAll<BaseClass>("Classes"); }
+
+    public BaseClass GetBaseClass(string className) { return Resources.Load<BaseClass>("Classes/" + className + ".asset"); }
+
+    public BaseClass GetBaseClass(int index) { if (index < GetBaseClasses().Length) { return GetBaseClasses()[index]; } return null; }
+
+    public BaseClass GetBaseClass() { if (GetBaseClasses().Length <= 0) { return null; } return GetBaseClasses()[Mathf.FloorToInt(Random.Range(0, GetBaseClasses().Length))]; }
+
     public void OnDeath()
     {
         Debug.Log("Unit has died. Now destroying " + name);
@@ -44,6 +53,7 @@ public class BaseUnit : MonoBehaviour
     public void GenerateUnitStats()
     {
         UnitStats = new Dictionary<StatType, float>();
+        UnitType = GetBaseClass();
         if (UnitType != null && UnitType.ClassStatSettings.Length > 0)
         {
             UnitType.GenerateStats(this);
