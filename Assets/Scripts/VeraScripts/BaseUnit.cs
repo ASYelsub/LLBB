@@ -16,9 +16,9 @@ public class BaseUnit : MonoBehaviour
 
     public static event Action<BaseUnit> UnitDeath;
 
-    void Start()
+    private void Start()
     {
-        //GenerateUnitStats();
+        GenerateUnitStats();
     }
 
     private void Update()
@@ -42,13 +42,6 @@ public class BaseUnit : MonoBehaviour
         Debug.Log("Unit has died. Now destroying " + name);
         Destroy(gameObject);
     }
-
-    public void DebugStats(){
-        Debug.Log(this.name);
-		for(int i = 0;i< UnitStats.Count; i++){
-			Debug.Log(UnitStats.ElementAt(i).Key + ": " + UnitStats.ElementAt(i).Value);
-		}
-	}
 
     public void GenerateUnitStats()
     {
@@ -89,7 +82,16 @@ public class UnitEditor: Editor
         if (GUILayout.Button("Generate Unit Stats"))
         {
             b.GenerateUnitStats();
-            b.DebugStats();
         }
+
+        if (b.UnitStats != null)
+        {
+            GUILayout.Label("Current Unit Max Stats:");
+            for (int i = 0; i < b.UnitStats.Count; i++)
+            {
+                GUILayout.Label(b.UnitStats.ElementAt(i).Key.ToString() + ": " + b.UnitStats.ElementAt(i).Value.ToString());
+            }
+        }
+
     }
 }

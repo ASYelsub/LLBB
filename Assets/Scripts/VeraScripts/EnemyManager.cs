@@ -21,17 +21,16 @@ public class EnemyManager : MonoBehaviour
 
     public void GenerateEnemies()
     {
-        if (!CanSpawnEnemies()) { return; }
-        for (int i = 0; i < ActiveEnemies.Capacity; i++)
+        PrepareGeneration();
+        if (CanSpawnEnemies())
         {
-            GameObject newEnemy = Instantiate(EnemyPrefab);
-            try
+            for (int i = 0; i < ActiveEnemies.Capacity; i++)
             {
-                newEnemy.name = "Enemy #" + (i+1).ToString();
+                GameObject newEnemy = Instantiate(EnemyPrefab);
+                newEnemy.name = "Enemy #" + (i + 1).ToString();
                 ActiveEnemies.Add(newEnemy.GetComponent<BaseUnit>());
                 ActiveEnemies[i].GenerateUnitStats();
             }
-            catch (NullReferenceException) { }
         }
     }
 
@@ -54,10 +53,16 @@ public class EnemyManager : MonoBehaviour
         if(ActiveEnemies == null) { return false; }
         return ActiveEnemies.Count == 0;
     }
-    public void PrepareGeneration() { ActiveEnemies = new List<BaseUnit>(); ActiveEnemies.Capacity = 4; }
-    public void DestroyAllEnemies()
+    public void PrepareGeneration() { if (ActiveEnemies == null) { ActiveEnemies = new List<BaseUnit>(); } else { DestroyAllEnemies(true); } ActiveEnemies.Capacity = 4; }
+    public void DestroyAllEnemies(bool inEditor = false)
     {
-        for (int i = 0; i < ActiveEnemies.Count; i++) { DestroyImmediate(ActiveEnemies[i].gameObject); }
+        if (inEditor)
+        {
+            for (int i = 0; i < ActiveEnemies.Count; i++) { DestroyImmediate(ActiveEnemies[i].gameObject); }
+        } else
+        {
+            for (int j = 0; j < ActiveEnemies.Count; j++) { Destroy(ActiveEnemies[j].gameObject); }
+        }
         ActiveEnemies.Clear();
     }
     #endregion
@@ -69,16 +74,15 @@ public class EnemyManagerEditor : Editor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        EnemyManager e = (EnemyManager)target;
+        EnemyManager e = (EnemyManager) target;
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Generate Wave of Enemies"))
         {
-            e.PrepareGeneration();
             e.GenerateEnemies();
         }
         if (GUILayout.Button("Destroy All Enemies"))
         {
-            e.DestroyAllEnemies();
+            e.DestroyAllEnemies(true);
         }
         GUILayout.EndHorizontal();
     }
