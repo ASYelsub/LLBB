@@ -65,6 +65,7 @@ public class PickChar : MonoBehaviour
         infoBoxes[8].SetActive(false);
         infoBoxes[9].SetActive(false);
         movesHolder.SetActive(false);
+        currentMenu = 0;
     }
     
     public void Update(){
