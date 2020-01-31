@@ -41,7 +41,7 @@ public class NewCameraController : MonoBehaviour
 
         fov = Camera.main.fieldOfView;
         fov -= Input.GetAxis("Mouse ScrollWheel") * 10f;
-        fov = Mathf.Clamp(fov, 15f, 110f);
+        fov = Mathf.Clamp(fov, 5f, 80f);
         Camera.main.fieldOfView = fov;
 
         if (Input.GetKeyDown(KeyCode.Tab) && cameraState == 0){

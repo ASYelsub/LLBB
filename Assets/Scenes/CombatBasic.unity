@@ -4324,7 +4324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379129016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 19.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
@@ -17999,6 +17999,7 @@ MonoBehaviour:
   - {fileID: 183447810}
   characterPicture: {fileID: 1703636287}
   movesHolder: {fileID: 1165751194}
+  onChar: 0
   currentMenu: 0
   menuName: {fileID: 1740009793}
   menuNames:
