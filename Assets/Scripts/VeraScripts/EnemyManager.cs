@@ -17,6 +17,7 @@ public class EnemyManager : MonoBehaviour
         if(Enemies == null) { Enemies = this; } else { Destroy(this); }
         ActiveEnemies.Capacity = 4;
         BaseUnit.UnitDeath += OnUnitDeath;
+        PrepareGeneration();
     }
 
     public void GenerateEnemies()
@@ -53,7 +54,7 @@ public class EnemyManager : MonoBehaviour
         if(ActiveEnemies == null) { return false; }
         return ActiveEnemies.Count == 0;
     }
-    public void PrepareGeneration() { if (ActiveEnemies == null) { ActiveEnemies = new List<BaseUnit>(); } else { DestroyAllEnemies(true); } ActiveEnemies.Capacity = 4; }
+    public void PrepareGeneration() { if (ActiveEnemies == null) { ActiveEnemies = new List<BaseUnit>(); } else { DestroyAllEnemies(Application.isEditor); } ActiveEnemies.Capacity = 4; }
     public void DestroyAllEnemies(bool inEditor = false)
     {
         if (inEditor)
@@ -65,6 +66,9 @@ public class EnemyManager : MonoBehaviour
         }
         ActiveEnemies.Clear();
     }
+
+    public List<BaseUnit> GetActiveEnemies() { return ActiveEnemies; }
+
     #endregion
 }
 
@@ -82,8 +86,13 @@ public class EnemyManagerEditor : Editor
         }
         if (GUILayout.Button("Destroy All Enemies"))
         {
-            e.DestroyAllEnemies(true);
+            e.DestroyAllEnemies(Application.isEditor);
         }
         GUILayout.EndHorizontal();
+
+        foreach (var a in e.GetActiveEnemies())
+        {
+            GUILayout.Label(a.name + ": " + a.UnitType.ToString());
+        }
     }
 }

@@ -14,6 +14,8 @@ public class BaseUnit : MonoBehaviour
     public CombatStat CurrentHP;
     public CombatStat CurrentStamina;
 
+    public List<CombatMoveType> UnitCombatMoves;
+
     public static event Action<BaseUnit> UnitDeath;
 
     private void Start()
@@ -51,7 +53,6 @@ public class BaseUnit : MonoBehaviour
         {
             UnitType.GenerateStats(this);
         }
-
         CurrentHP = new CombatStat(StatType.HEALTH, this);
         CurrentStamina = new CombatStat(StatType.STAMINA, this);
     }
@@ -84,14 +85,23 @@ public class UnitEditor: Editor
             b.GenerateUnitStats();
         }
 
+
         if (b.UnitStats != null)
         {
-            GUILayout.Label("Current Unit Max Stats:");
+            GUILayout.Label("Current Unit Max Stats:", EditorStyles.boldLabel);
             for (int i = 0; i < b.UnitStats.Count; i++)
             {
                 GUILayout.Label(b.UnitStats.ElementAt(i).Key.ToString() + ": " + b.UnitStats.ElementAt(i).Value.ToString());
             }
         }
 
+        if (b.UnitCombatMoves != null)
+        {
+            GUILayout.Label("Unit Attacks: ", EditorStyles.boldLabel);
+            for (int j = 0; j < b.UnitCombatMoves.Count; j++)
+            {
+                GUILayout.Label(b.UnitCombatMoves[j].GetMoveByType().MoveName + ": " + b.UnitCombatMoves[j].GetMoveByType().StaminaRequired.ToString() + " Stamina Required");
+            }
+        }
     }
 }

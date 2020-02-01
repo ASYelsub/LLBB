@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Class", menuName = "Classes")]
+[CreateAssetMenu(fileName = "New Class", menuName = "Combat/Classes")]
 public class BaseClass : ScriptableObject
 {
     public CombatStatSetting[] ClassStatSettings;
