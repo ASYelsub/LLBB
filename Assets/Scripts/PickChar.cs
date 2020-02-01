@@ -22,6 +22,8 @@ public class PickChar : MonoBehaviour
     public Text[] activeStat = new Text[9];
     public GameObject[] infoBoxes = new GameObject[9];
     public Image characterPicture;
+    public GameObject movesHolder;
+    public bool onChar = false;
 
     public int currentMenu; //0 = stats, 1 = skills, 2 = gear
     public Text menuName;
@@ -51,6 +53,7 @@ public class PickChar : MonoBehaviour
             activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
             activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
             activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+            activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         infoBoxes[0].SetActive(false);
         infoBoxes[1].SetActive(false);
         infoBoxes[2].SetActive(false);
@@ -60,6 +63,9 @@ public class PickChar : MonoBehaviour
         infoBoxes[6].SetActive(false);
         infoBoxes[7].SetActive(false);
         infoBoxes[8].SetActive(false);
+        infoBoxes[9].SetActive(false);
+        movesHolder.SetActive(false);
+        currentMenu = 0;
     }
     
     public void Update(){
@@ -90,6 +96,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
                 activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
                 activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
                 activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+                activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         }
         else if(direction == 1 && characterNumber == charNames.Length - 1){
             characterNumber = 0;
@@ -104,6 +111,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
                 activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
                 activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
                 activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+                activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         }
         if(direction == 0 && characterNumber > 0){
             characterNumber --;
@@ -118,6 +126,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
                 activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
                 activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
                 activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+                activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         }
         else if(direction == 0 && characterNumber == 0){
             characterNumber = 8;
@@ -132,6 +141,7 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
                 activeStat[6].text = ourStatStorage.skinThickness[characterNumber].ToString();
                 activeStat[7].text = ourStatStorage.independence[characterNumber].ToString();
                 activeStat[8].text = ourStatStorage.empathy[characterNumber].ToString();
+                activeStat[9].text = ourStatStorage.strut[characterNumber].ToString();
         }
         
     }
@@ -161,15 +171,26 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
     public void OverChar(int i){
         if (dragableHeld == true){//Debug.Log("OverChar plus letGo");
             if (i == 1)
-                { heldNumber = 1; }
+                { heldNumber = 1;}
             if (i == 2)
-                { heldNumber = 2; }
+                { heldNumber = 2;}
             if (i == 3)
                 { heldNumber = 3; }
             if (i == 4)
-                { heldNumber = 4; }
+                { heldNumber = 4;}
             if (i == 0) //on exit from char buttons set i as 0
-                { heldNumber = 0; }
+                { heldNumber = 0;}
+        }
+        else if (dragableHeld == false)
+        {
+            if (i >= 1)
+            {
+                onChar = true;
+            }
+            else
+            {
+                onChar = false;
+            }
         }
     }
     //setting who "character" is when let go
@@ -240,5 +261,6 @@ public void ChangeActiveCharArray(int direction){ //0 = left, 1 = right
     public void BeginGame(){
         //triggered by pressing start button
         this.gameObject.SetActive(false);
+        movesHolder.SetActive(true);
     }
 }

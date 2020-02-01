@@ -14,7 +14,8 @@ public class CharacterStatStorage : MonoBehaviour
                 creepiness,
                 skinThickness,
                 independence,
-                empathy = new int[9];
+                empathy,
+                strut= new int[10];
 
  void awake(){
     /*health[0]= 1; stamina[0] = 1; whamitude[0] = 1;
