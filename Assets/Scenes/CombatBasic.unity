@@ -5931,7 +5931,6 @@ GameObject:
   - component: {fileID: 459321236}
   - component: {fileID: 459321235}
   - component: {fileID: 459321237}
-  - component: {fileID: 459321238}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5993,30 +5992,6 @@ MonoBehaviour:
   gear: {fileID: 2007589100}
   myCanvas: {fileID: 151285097}
   isCanvasOn: 1
---- !u!114 &459321238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459321234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d299d20c276854317804795d4100c50b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveText:
-  - {fileID: 369034301}
-  - {fileID: 481734742}
-  - {fileID: 1203927613}
-  - {fileID: 949421909}
-  - {fileID: 1372135329}
-  - {fileID: 988554297}
-  - {fileID: 875626312}
-  - {fileID: 2107447936}
-  - {fileID: 1430589068}
-  - {fileID: 192011783}
-  - {fileID: 0}
 --- !u!1 &460759911
 GameObject:
   m_ObjectHideFlags: 0
@@ -14257,6 +14232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1165751195}
+  - component: {fileID: 1165751196}
   m_Layer: 5
   m_Name: MovesHolder
   m_TagString: Untagged
@@ -14293,6 +14269,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1165751196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165751194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0bb48b8b52324ed1adadfb68580bdf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveButtons: []
 --- !u!1 &1176802405
 GameObject:
   m_ObjectHideFlags: 0
@@ -17928,7 +17917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c17ed83157bb7459b6af5913240b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveManager: {fileID: 459321238}
   activeCharMovement: {fileID: 1110181942}
   characterSelectOne: {fileID: 141654375}
   characterSelectTwo: {fileID: 1004071383}
