@@ -72,27 +72,4 @@ public class EnemyManager : MonoBehaviour
     #endregion
 }
 
-[CustomEditor(typeof(EnemyManager))]
-public class EnemyManagerEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        EnemyManager e = (EnemyManager) target;
-        GUILayout.BeginHorizontal();
-        if (GUILayout.Button("Generate Wave of Enemies"))
-        {
-            e.GenerateEnemies();
-        }
-        if (GUILayout.Button("Destroy All Enemies"))
-        {
-            e.DestroyAllEnemies(Application.isEditor);
-        }
-        GUILayout.EndHorizontal();
 
-        foreach (var a in e.GetActiveEnemies())
-        {
-            GUILayout.Label(a.name + ": " + a.UnitType.ToString());
-        }
-    }
-}

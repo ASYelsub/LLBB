@@ -17,10 +17,14 @@ public class BaseUnit : MonoBehaviour
     public List<CombatMoveType> UnitCombatMoves;
 
     public static event Action<BaseUnit> UnitDeath;
+    public static event Action<BaseUnit, float> UnitAttacked;
+
+    public BaseUnit TargetToEffect;
 
     private void Start()
     {
         GenerateUnitStats();
+        UnitAttacked += TakeDamageFromAttack;
     }
 
     private void Update()
@@ -31,9 +35,29 @@ public class BaseUnit : MonoBehaviour
         }
     }
 
-    public BaseClass[] GetBaseClasses() { return Resources.LoadAll<BaseClass>("Classes"); }
+    public void BroadcastUnitAttacked(CombatMoveType moveUsed)
+    {
+        if(TargetToEffect != null)
+        {
+            if (UnitAttacked != null)
+            {
+                CombatMove combat = moveUsed.GetMoveByType();
+                if (SufficientStamina(combat.StaminaRequired)) { UnitAttacked(TargetToEffect, combat.DamageCalculationOutput(this, TargetToEffect)); }
+            }
+        }
+    }
 
-    public BaseClass GetBaseClass(string className) { return Resources.Load<BaseClass>("Classes/" + className + ".asset"); }
+    void TakeDamageFromAttack(BaseUnit t, float dmg)
+    {
+        if (t == this)
+        {
+            CurrentHP.CurrentValue -= dmg;
+        }
+    }
+
+    public BaseClass[] GetBaseClasses() { return Resources.LoadAll<BaseClass>("Class Scriptables"); }
+
+    public BaseClass GetBaseClass(string className) { return Resources.Load<BaseClass>("Class Scriptables/" + className + ".asset"); }
 
     public BaseClass GetBaseClass(int index) { if (index < GetBaseClasses().Length) { return GetBaseClasses()[index]; } return null; }
 
@@ -72,36 +96,8 @@ public class BaseUnit : MonoBehaviour
         if (UnitDeath!=null) { UnitDeath(this); }
     }
 
-}
-[CustomEditor(typeof(BaseUnit))]
-public class UnitEditor: Editor
-{
-    public override void OnInspectorGUI()
+    private void OnDestroy()
     {
-        base.OnInspectorGUI();
-        BaseUnit b = (BaseUnit)target;
-        if (GUILayout.Button("Generate Unit Stats"))
-        {
-            b.GenerateUnitStats();
-        }
-
-
-        if (b.UnitStats != null)
-        {
-            GUILayout.Label("Current Unit Max Stats:", EditorStyles.boldLabel);
-            for (int i = 0; i < b.UnitStats.Count; i++)
-            {
-                GUILayout.Label(b.UnitStats.ElementAt(i).Key.ToString() + ": " + b.UnitStats.ElementAt(i).Value.ToString());
-            }
-        }
-
-        if (b.UnitCombatMoves != null)
-        {
-            GUILayout.Label("Unit Attacks: ", EditorStyles.boldLabel);
-            for (int j = 0; j < b.UnitCombatMoves.Count; j++)
-            {
-                GUILayout.Label(b.UnitCombatMoves[j].GetMoveByType().MoveName + ": " + b.UnitCombatMoves[j].GetMoveByType().StaminaRequired.ToString() + " Stamina Required");
-            }
-        }
+        UnitAttacked -= TakeDamageFromAttack;
     }
 }
