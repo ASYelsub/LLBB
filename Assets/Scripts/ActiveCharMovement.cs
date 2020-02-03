@@ -84,7 +84,7 @@ public class ActiveCharMovement : MonoBehaviour
     }
 
     void Update(){
-        Debug.Log(pickChar.onChar);
+//        Debug.Log(pickChar.onChar);
         if(!gamePaused){
             
                 if(Input.GetKeyDown(KeyCode.Mouse0) && pickChar.onChar == false){
