@@ -5142,6 +5142,7 @@ MonoBehaviour:
   skinThickness: 010000000200000003000000040000000500000006000000070000000800000009000000
   independence: 010000000200000003000000040000000500000006000000070000000800000009000000
   empathy: 010000000200000003000000040000000500000006000000070000000800000009000000
+  strut: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!4 &459321236
 Transform:
   m_ObjectHideFlags: 0
@@ -10391,6 +10392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4ae11bb8ea87a4b911d8e637eaee71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSensitivity: 0
+  thisCamera: {fileID: 0}
 --- !u!1 &969462750
 GameObject:
   m_ObjectHideFlags: 0
@@ -11486,6 +11489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862547c1cbdd46b48b11bc46b6a8d507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickChar: {fileID: 0}
   charTransform:
   - {fileID: 894731447}
   - {fileID: 1312577968}
@@ -15242,6 +15246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c17ed83157bb7459b6af5913240b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveManager: {fileID: 0}
   activeCharMovement: {fileID: 1110181942}
   characterSelectOne: {fileID: 141654375}
   characterSelectTwo: {fileID: 1004071383}
@@ -16248,6 +16253,8 @@ MonoBehaviour:
   - {fileID: 1445421670}
   - {fileID: 2102859532}
   characterPicture: {fileID: 1703636287}
+  movesHolder: {fileID: 0}
+  onChar: 0
   currentMenu: 0
   menuName: {fileID: 1740009793}
   menuNames:
@@ -24091,6 +24098,32 @@ PrefabInstance:
         type: 3}
       propertyPath: UnitCombatMoves.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1366862521356358940, guid: 608f8bbb7d20b4fc38d7af5b575de0cc,
+        type: 3}
+      propertyPath: UnitType
+      value: 
+      objectReference: {fileID: 11400000, guid: 587e7448faa25430aad61c372e39f8fb,
+        type: 2}
+    - target: {fileID: -1366862521356358940, guid: 608f8bbb7d20b4fc38d7af5b575de0cc,
+        type: 3}
+      propertyPath: CurrentHP.CombatStatType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1366862521356358940, guid: 608f8bbb7d20b4fc38d7af5b575de0cc,
+        type: 3}
+      propertyPath: CurrentHP.CurrentValue
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -1366862521356358940, guid: 608f8bbb7d20b4fc38d7af5b575de0cc,
+        type: 3}
+      propertyPath: CurrentStamina.CombatStatType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1366862521356358940, guid: 608f8bbb7d20b4fc38d7af5b575de0cc,
+        type: 3}
+      propertyPath: CurrentStamina.CurrentValue
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 608f8bbb7d20b4fc38d7af5b575de0cc, type: 3}
