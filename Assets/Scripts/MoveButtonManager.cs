@@ -16,28 +16,32 @@ public class MoveButtonManager : MonoBehaviour
     public struct MoveButton
     {
         public Button uiButton;
+        public Text buttonText;
         public CombatMoveType moveTypeToDisplay;
         public MoveButton(Button b, CombatMoveType c)
         {
             uiButton = b;
+            buttonText = b.GetComponentInChildren<Text>();
             moveTypeToDisplay = c;
+            buttonText.text = c.GetMoveByType().MoveName;
         }
 
         public MoveButton(Button b)
         {
             uiButton = b;
+            buttonText = b.GetComponentInChildren<Text>();
+            buttonText.text = "";
             moveTypeToDisplay = CombatMoveType.EXAMPLE;
-        }
-
-        public void UpdateCombatType(CombatMoveType c)
-        {
-            Debug.Log("Update to: " + c);
-            moveTypeToDisplay = c;
         }
 
         public void AddUnitAttackListener(BaseUnit b, CombatMoveType c)
         {
             uiButton.onClick.AddListener(() => b.BroadcastUnitAttacked(c));
+        }
+
+        public void ToggleUiButton(bool setAs)
+        {
+            uiButton.interactable = setAs;
         }
     }
     #endregion
@@ -56,17 +60,27 @@ public class MoveButtonManager : MonoBehaviour
             for (int j = 0; j < MoveButtons.Count; j++)
             {
                 MoveButtons[j].uiButton.onClick.RemoveAllListeners();
+                MoveButtons[j].ToggleUiButton(true);
             }
         }
         FocusUnit = b;
-        for (int i = 0; i < b.UnitCombatMoves.Count; i++)
+        int numberOfMoves = b.UnitCombatMoves.Count;
+        for (int i = 0; i < MoveButtons.Count; i++)
         {
-            Button bu = MoveButtons[i].uiButton;
-            MoveButtons[i] = new MoveButton(bu, b.UnitCombatMoves[i]);
-            MoveButtons[i].AddUnitAttackListener(b, MoveButtons[i].moveTypeToDisplay);
+            if (i < numberOfMoves)
+            {
+                Button bu = MoveButtons[i].uiButton;
+                MoveButtons[i] = new MoveButton(bu, b.UnitCombatMoves[i]);
+                MoveButtons[i].ToggleUiButton(true);
+                MoveButtons[i].AddUnitAttackListener(b, MoveButtons[i].moveTypeToDisplay);
+            } else
+            {
+                MoveButtons[i].ToggleUiButton(false);
+                MoveButtons[i].buttonText.text = "";
+            }
         }
 
-        moveManager.DebugMoveButtons = new List<MoveButton>(MoveButtons);
+        //moveManager.DebugMoveButtons = new List<MoveButton>(MoveButtons);
     }
 
     public static void GenerateMoveButtons()

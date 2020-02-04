@@ -32,6 +32,7 @@ public class BaseUnit : MonoBehaviour
         if (UnitKilled())
         {
             BroadcastUnitDeath();
+           //OnDeath();
         }
     }
 

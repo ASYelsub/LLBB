@@ -19,7 +19,6 @@ public class UnitEditor : Editor
         if (GUILayout.Button("Set as Focus Unit for Moveset"))
         {
             MoveButtonManager.SetFocusUnit(b);
-            MoveButtonManager.GenerateMoveButtons();
         }
         GUILayout.EndHorizontal();
 
