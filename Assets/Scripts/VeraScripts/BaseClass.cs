@@ -63,6 +63,7 @@ public enum StatType
     CREEPINESS = 6,
     SKINTHICKNESS = 7,
     INDEPENDENCE = 8,
-    EMPATHY = 9
+    EMPATHY = 9,
+    STRUT = 10
 }
 

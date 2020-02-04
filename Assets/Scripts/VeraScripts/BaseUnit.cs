@@ -25,7 +25,7 @@ public class BaseUnit : MonoBehaviour
     {
         GenerateUnitStats();
         UnitAttacked += TakeDamageFromAttack;
-    }
+    } 
 
     private void Update()
     {
@@ -35,13 +35,19 @@ public class BaseUnit : MonoBehaviour
         }
     }
 
+    public void SetTargetToEffect(BaseUnit b)
+    {
+        TargetToEffect = b;
+    }
+
     public void BroadcastUnitAttacked(CombatMoveType moveUsed)
     {
+        Debug.Log(name + " used: " + moveUsed);
         if(TargetToEffect != null)
         {
             if (UnitAttacked != null)
             {
-                CombatMove combat = moveUsed.GetMoveByType();
+                var combat = moveUsed.GetMoveByType();
                 if (SufficientStamina(combat.StaminaRequired)) { UnitAttacked(TargetToEffect, combat.DamageCalculationOutput(this, TargetToEffect)); }
             }
         }
