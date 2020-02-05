@@ -14,6 +14,8 @@ public class BaseUnit : MonoBehaviour
     public CombatStat CurrentHP;
     public CombatStat CurrentStamina;
 
+    public virtual bool GenerateRandomStats { get => true; }
+
     public List<CombatMoveType> UnitCombatMoves;
 
     public static event Action<BaseUnit> UnitDeath;
@@ -21,9 +23,9 @@ public class BaseUnit : MonoBehaviour
 
     public BaseUnit TargetToEffect;
 
-    private void Start()
+    public virtual void Start()
     {
-        GenerateUnitStats();
+        if (GenerateRandomStats) { GenerateUnitStats(); }
         UnitAttacked += TakeDamageFromAttack;
     } 
 
@@ -98,7 +100,7 @@ public class BaseUnit : MonoBehaviour
         return CurrentStamina.CurrentValue >= amountNeeded;
     }
 
-    void BroadcastUnitDeath()
+    public void BroadcastUnitDeath()
     {
         if (UnitDeath!=null) { UnitDeath(this); }
     }

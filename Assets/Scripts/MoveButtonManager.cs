@@ -8,7 +8,6 @@ public class MoveButtonManager : MonoBehaviour
 {
     private static MoveButtonManager moveManager;
     public static List<MoveButton> MoveButtons;
-    public List<MoveButton> DebugMoveButtons;
     public static BaseUnit FocusUnit;
 
     #region Move Button Struct
@@ -79,8 +78,6 @@ public class MoveButtonManager : MonoBehaviour
                 MoveButtons[i].buttonText.text = "";
             }
         }
-
-        //moveManager.DebugMoveButtons = new List<MoveButton>(MoveButtons);
     }
 
     public static void GenerateMoveButtons()
