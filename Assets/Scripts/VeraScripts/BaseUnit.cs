@@ -52,6 +52,7 @@ public class BaseUnit : MonoBehaviour
             {
                 var combat = moveUsed.GetMoveByType();
                 if (SufficientStamina(combat.StaminaRequired)) { UnitAttacked(TargetToEffect, combat.DamageCalculationOutput(this, TargetToEffect)); }
+                CurrentStamina.CurrentValue -= combat.StaminaRequired;
             }
         }
     }

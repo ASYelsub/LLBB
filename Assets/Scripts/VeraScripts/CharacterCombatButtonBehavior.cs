@@ -15,6 +15,16 @@ public class CharacterCombatButtonBehavior : MonoBehaviour
         CharacterButton = GetComponent<Button>();
         HpDisplay = new StatSliderDisplay(transform.Find("HpSlider").GetComponent<Slider>());
         StaminaDisplay = new StatSliderDisplay(transform.Find("StaminaSlider").GetComponent<Slider>());
+        CharacterButton.onClick.AddListener(() => SelectCharacterForCombat());
+    }
+
+    public void SelectCharacterForCombat()
+    {
+        if (CharacterCombative != null)
+        {
+            MoveButtonManager.SetFocusUnit(CharacterCombative);
+            PlayerUnitManager.SetActivePlayerUnit(CharacterCombative);
+        }
     }
 
     public void SetFocusToCharacter()
@@ -33,8 +43,8 @@ public class CharacterCombatButtonBehavior : MonoBehaviour
         {
             HpDisplay.StatToDisplay = CharacterCombative.CurrentHP;
             StaminaDisplay.StatToDisplay = CharacterCombative.CurrentStamina;
-            HpDisplay.DisplayStats();
-            StaminaDisplay.DisplayStats();
+            HpDisplay.DisplayStats(CharacterCombative.UnitStats[StatType.HEALTH]);
+            StaminaDisplay.DisplayStats(CharacterCombative.UnitStats[StatType.STAMINA]);
         } else
         {
             CharacterCombative = CharacterIndex <= PlayerUnitManager.ActivePlayerUnits.Count ? PlayerUnitManager.ActivePlayerUnits[CharacterIndex] : null;
@@ -47,17 +57,15 @@ public struct StatSliderDisplay
 {
     public Slider StatSlider;
     public CombatStat StatToDisplay;
-    public float MaxValue;
     public StatSliderDisplay(Slider s)
     {
         StatSlider = s;
         StatToDisplay = new CombatStat();
-        MaxValue = StatToDisplay.CurrentValue;
     }
 
-    public void DisplayStats()
+    public void DisplayStats(float max)
     {
-        StatSlider.maxValue = MaxValue;
+        StatSlider.maxValue = max;
         StatSlider.value = StatToDisplay.CurrentValue;
     }
 }
