@@ -19,7 +19,8 @@ public static class CombatMoves
     }
     private static Dictionary<string, CombatMove> CombatMoveByString { get => new Dictionary<string, CombatMove>
     {
-        { NullCombatMove.MoveName, NullCombatMove}
+        { NullCombatMove.MoveName, NullCombatMove},
+        { Kick.MoveName, Kick}
     };
     }
     #endregion

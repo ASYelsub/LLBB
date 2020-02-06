@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1480731641396241244}
   - component: {fileID: 1480731641396241245}
   - component: {fileID: -1366862521356358940}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,10 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab56f2c74149e4525a9534de64b6ff4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitType: {fileID: 11400000, guid: 587e7448faa25430aad61c372e39f8fb, type: 2}
+  UnitType: {fileID: 11400000, guid: fdfa369cffe0747b3a2c94353b9d6a03, type: 2}
   CurrentHP:
     CombatStatType: 1
-    CurrentValue: 6
+    CurrentValue: 7
   CurrentStamina:
     CombatStatType: 2
     CurrentValue: 6
+  UnitCombatMoves: 0000000001000000
+  TargetToEffect: {fileID: 0}

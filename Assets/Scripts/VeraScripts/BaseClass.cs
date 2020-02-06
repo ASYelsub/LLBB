@@ -35,10 +35,12 @@ public struct CombatStatSetting
 }
 
 [System.Serializable]
-public struct CombatStat
+public class CombatStat
 {
     public StatType CombatStatType;
     public float CurrentValue;
+
+    public CombatStat() { CombatStatType = StatType.NONE; CurrentValue = 1; }
 
     public CombatStat(StatType t, BaseUnit u)
     {
@@ -63,6 +65,7 @@ public enum StatType
     CREEPINESS = 6,
     SKINTHICKNESS = 7,
     INDEPENDENCE = 8,
-    EMPATHY = 9
+    EMPATHY = 9,
+    STRUT = 10
 }
 

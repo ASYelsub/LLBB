@@ -11,10 +11,18 @@ public class UnitEditor : Editor
     {
         base.OnInspectorGUI();
         BaseUnit b = (BaseUnit)target;
+        GUILayout.BeginHorizontal();
         if (GUILayout.Button("Generate Unit Stats"))
         {
             b.GenerateUnitStats();
         }
+        if (GUILayout.Button("Set as Focus Unit for Moveset"))
+        {
+            MoveButtonManager.SetFocusUnit(b);
+        }
+
+
+        GUILayout.EndHorizontal();
 
 
         if (b.UnitStats != null)

@@ -24097,7 +24097,7 @@ PrefabInstance:
     - target: {fileID: -1366862521356358940, guid: 608f8bbb7d20b4fc38d7af5b575de0cc,
         type: 3}
       propertyPath: UnitCombatMoves.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -1366862521356358940, guid: 608f8bbb7d20b4fc38d7af5b575de0cc,
         type: 3}
@@ -24124,6 +24124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: CurrentStamina.CurrentValue
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -1366862521356358940, guid: 608f8bbb7d20b4fc38d7af5b575de0cc,
+        type: 3}
+      propertyPath: UnitCombatMoves.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 608f8bbb7d20b4fc38d7af5b575de0cc, type: 3}

@@ -7,7 +7,8 @@ using UnityEditor;
 public class EnemyManager : MonoBehaviour
 {
     private static EnemyManager Enemies;
-
+    public bool UseEnemyManager;
+    public Vector3 MinSpawnValues, MaxSpawnValues;
     [Header("Unit Template to Spawn")]
     public GameObject EnemyPrefab;
     private static List<BaseUnit> ActiveEnemies = new List<BaseUnit>();
@@ -18,6 +19,7 @@ public class EnemyManager : MonoBehaviour
         ActiveEnemies.Capacity = 4;
         BaseUnit.UnitDeath += OnUnitDeath;
         PrepareGeneration();
+        if (UseEnemyManager) { GenerateEnemies(); }
     }
 
     public void GenerateEnemies()
@@ -28,6 +30,7 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < ActiveEnemies.Capacity; i++)
             {
                 GameObject newEnemy = Instantiate(EnemyPrefab);
+                newEnemy.transform.position = RandomSpawnPosition();
                 newEnemy.name = "Enemy #" + (i + 1).ToString();
                 ActiveEnemies.Add(newEnemy.GetComponent<BaseUnit>());
                 ActiveEnemies[i].GenerateUnitStats();
@@ -40,6 +43,7 @@ public class EnemyManager : MonoBehaviour
         if (!ActiveEnemies.Contains(bu)) { return; }
         ActiveEnemies.Remove(bu);
         bu.OnDeath();
+        Debug.Log(bu.name + " has been killed. " + ActiveEnemies.Count + " enemies remain.");
         if (ActiveEnemies.Count <= 0) { GenerateEnemies(); }
     }
 
@@ -68,6 +72,14 @@ public class EnemyManager : MonoBehaviour
     }
 
     public List<BaseUnit> GetActiveEnemies() { return ActiveEnemies; }
+
+    Vector3 RandomSpawnPosition()
+    {
+        float x = UnityEngine.Random.Range(MinSpawnValues.x, MaxSpawnValues.x);
+        float y = UnityEngine.Random.Range(MinSpawnValues.y, MaxSpawnValues.y);
+        float z = UnityEngine.Random.Range(MinSpawnValues.z, MaxSpawnValues.z);
+        return new Vector3(x,y,z);
+    }
 
     #endregion
 }
