@@ -14,7 +14,7 @@ public class BaseUnit : MonoBehaviour
     public CombatStat CurrentHP;
     public CombatStat CurrentStamina;
 
-    public virtual bool GenerateRandomStats { get => true; }
+    public bool GenerateRandomStats;
 
     public List<CombatMoveType> UnitCombatMoves;
 
@@ -51,13 +51,13 @@ public class BaseUnit : MonoBehaviour
             if (UnitAttacked != null)
             {
                 var combat = moveUsed.GetMoveByType();
-                if (SufficientStamina(combat.StaminaRequired)) { UnitAttacked(TargetToEffect, combat.DamageCalculationOutput(this, TargetToEffect)); }
+                if (SufficientStamina(combat.StaminaRequired)) { UnitAttacked(TargetToEffect, combat.DamageCalculationOutput(this, TargetToEffect) * this.IdealDistanceFactor(TargetToEffect)); }
                 CurrentStamina.CurrentValue -= combat.StaminaRequired;
             }
         }
     }
 
-    void TakeDamageFromAttack(BaseUnit t, float dmg)
+    protected void TakeDamageFromAttack(BaseUnit t, float dmg)
     {
         if (t == this)
         {

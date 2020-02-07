@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerUnit : BaseUnit
 {
-    public override bool GenerateRandomStats => false;
+    
     public PlayerData PlayerUnitData;
 
     public override void Start()
     {
+        GenerateRandomStats = false;
         base.Start();
     }
     

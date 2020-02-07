@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce03c082bf4f943269334500d5f8cffb, type: 3}
   m_Name: Artist
   m_EditorClassIdentifier: 
+  IdealDistance: 10
   ClassStatSettings:
   - CombatStatType: 1
     StatMaxValue: 10
@@ -39,4 +40,7 @@ MonoBehaviour:
     StatBonus: 0
   - CombatStatType: 9
     StatMaxValue: 10
+    StatBonus: 0
+  - CombatStatType: 10
+    StatMaxValue: 5
     StatBonus: 0

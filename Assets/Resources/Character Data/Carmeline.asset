@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Carmeline
   m_EditorClassIdentifier: 
   CharacterName: Carmeline
-  PlayerUnitClass: {fileID: 11400000, guid: c62cb3755a7bc4aed81903a14ff20595, type: 2}
+  PlayerUnitClass: {fileID: 11400000, guid: 587e7448faa25430aad61c372e39f8fb, type: 2}
