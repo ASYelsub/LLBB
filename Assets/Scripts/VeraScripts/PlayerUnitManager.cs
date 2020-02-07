@@ -11,6 +11,8 @@ public class PlayerUnitManager : MonoBehaviour
     public static List<PlayerUnit> ActivePlayerUnits;
 
     public static PlayerUnit ActiveUnit;
+    public GameObject SelectedUnitSprite;
+    public static GameObject ActiveUnitSprite { get => pum.SelectedUnitSprite; }
 
     private void Start()
     {
@@ -25,7 +27,7 @@ public class PlayerUnitManager : MonoBehaviour
 
     private void Update()
     {
-        if(ActiveUnit != null) { Debug.Log(ActiveUnit.name); }
+        if(ActiveUnit != null) { Debug.Log(ActiveUnit.name); ActiveUnitSprite.GetComponent<SpriteRenderer>().enabled = true; } else { ActiveUnitSprite.GetComponent<SpriteRenderer>().enabled = false; }
         if (Input.GetKey(KeyCode.LeftShift))
         {
             SelectEnemyTargetViaClick();
@@ -35,6 +37,7 @@ public class PlayerUnitManager : MonoBehaviour
     public static void SetActivePlayerUnit(PlayerUnit p)
     {
         ActiveUnit = p;
+        ActiveUnitSprite.transform.position = new Vector3(p.transform.position.x, 0, p.transform.position.z);
     }
 
     public static void SetActivePlayerUnit(BaseUnit b)

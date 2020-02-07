@@ -30,6 +30,13 @@ public static class CombatMoves
     public static CombatMove GetMoveByString(string s) { if (CombatMoveByString.ContainsKey(s)) { return CombatMoveByString[s]; } return CombatMoveByString["Example Move"]; }
 
     public static bool CanExecuteCombatMove(this BaseUnit b, CombatMove cm) { return b.SufficientStamina(cm.StaminaRequired); }
+
+    public static float IdealDistanceFactor(this BaseUnit attacker, BaseUnit target)
+    {
+        float ideal = attacker.UnitType.IdealDistance; float actual = Mathf.Floor(Mathf.Abs(Vector3.Distance(attacker.transform.position, target.transform.position)));
+        return Mathf.Min(1f, actual / ideal);
+    }
+
 }
 
 public enum CombatMoveType
@@ -43,9 +50,9 @@ public class CombatMove
 {
     public string MoveName;
     public CombatMoveType CombatMoveType;
-    public float StaminaRequired;
+    public float StaminaRequired, CoolDown;
 
-    public CombatMove() { CombatMoveType = CombatMoveType.EXAMPLE; StaminaRequired = 0; MoveName = "Example Move"; }
+    public CombatMove() { CombatMoveType = CombatMoveType.EXAMPLE; StaminaRequired = 0; CoolDown = 3; MoveName = "Example Move"; }
 
     public virtual float DamageCalculationOutput(BaseUnit attacker, BaseUnit target)
     {
@@ -56,7 +63,7 @@ public class CombatMove
 
 public class Kick : CombatMove
 {
-    public Kick() { CombatMoveType = CombatMoveType.KICK; StaminaRequired = 1; MoveName = "Kick"; } //this overrides the CombatMove thing on line 45 for specifically KICK
+    public Kick() { CombatMoveType = CombatMoveType.KICK; StaminaRequired = 1; CoolDown = 5; MoveName = "Kick"; } //this overrides the CombatMove thing on line 45 for specifically KICK
     public override float DamageCalculationOutput(BaseUnit attacker, BaseUnit target)
     {
         return 0;

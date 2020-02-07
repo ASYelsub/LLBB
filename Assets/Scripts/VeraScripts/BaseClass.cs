@@ -5,11 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Class", menuName = "Combat/Classes")]
 public class BaseClass : ScriptableObject
 {
+    public float IdealDistance;
     public CombatStatSetting[] ClassStatSettings;
 
     public void GenerateStats(BaseUnit u)
     {
-        if (u.UnitStats == null || u.UnitStats.Count > 9) { return; }
+        if (u.UnitStats == null || u.UnitStats.Count > 10) { return; }
         for (int i = 0; i < ClassStatSettings.Length; i++)
         {
             u.UnitStats.Add(ClassStatSettings[i].CombatStatType, ClassStatSettings[i].GenerateStat());

@@ -17,12 +17,14 @@ public class MoveButtonManager : MonoBehaviour
         public Button uiButton;
         public Text buttonText;
         public CombatMoveType moveTypeToDisplay;
+        private float TimeStamp;
         public MoveButton(Button b, CombatMoveType c)
         {
             uiButton = b;
             buttonText = b.GetComponentInChildren<Text>();
             moveTypeToDisplay = c;
             buttonText.text = c.GetMoveByType().MoveName;
+            TimeStamp = DateTime.Now.Second;
         }
 
         public MoveButton(Button b)
@@ -31,6 +33,17 @@ public class MoveButtonManager : MonoBehaviour
             buttonText = b.GetComponentInChildren<Text>();
             buttonText.text = "";
             moveTypeToDisplay = CombatMoveType.EXAMPLE;
+            TimeStamp = DateTime.Now.Second;
+        }
+
+        public bool FinishedCoolDown()
+        {
+            return (DateTime.Now.Second - TimeStamp) > moveTypeToDisplay.GetMoveByType().CoolDown;
+        }
+
+        public void SetTimeClicked(float f)
+        {
+            TimeStamp = f;
         }
 
         public void AddUnitAttackListener(BaseUnit b, CombatMoveType c)
@@ -72,6 +85,7 @@ public class MoveButtonManager : MonoBehaviour
                 MoveButtons[i] = new MoveButton(bu, b.UnitCombatMoves[i]);
                 MoveButtons[i].ToggleUiButton(true);
                 MoveButtons[i].AddUnitAttackListener(b, MoveButtons[i].moveTypeToDisplay);
+                //MoveButtons[i].uiButton.onClick.AddListener(() => SetTimeStamp(MoveButtons[i]));
             } else
             {
                 MoveButtons[i].ToggleUiButton(false);
@@ -83,6 +97,12 @@ public class MoveButtonManager : MonoBehaviour
     public static void GenerateMoveButtons()
     {
         MoveButtons = CreateMoveButtonList(new List<Button>(moveManager.GetComponentsInChildren<Button>()));
+    }
+
+    public static void SetTimeStamp(MoveButton m)
+    {
+        Debug.Log(DateTime.Now.Second);
+        m.SetTimeClicked(DateTime.Now.Second);
     }
 
     private static  List<MoveButton> CreateMoveButtonList(List<Button> buttons)
