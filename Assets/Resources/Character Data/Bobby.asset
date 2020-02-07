@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Bobby
   PlayerUnitClass: {fileID: 11400000, guid: acb11770291d24bb38b19ca104c5e6b8, type: 2}
+  CharacterSpecificMoves: 01000000

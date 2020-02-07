@@ -10,6 +10,10 @@ public class PlayerUnit : BaseUnit
     public override void Start()
     {
         base.Start();
+        if (PlayerUnitData != null && PlayerUnitData.CharacterSpecificMoves.Count > 0)
+        {
+            UnitCombatMoves.AddRange(PlayerUnitData.CharacterSpecificMoves);
+        }
     }
     
     public void SetPlayerStats(PlayerData p)

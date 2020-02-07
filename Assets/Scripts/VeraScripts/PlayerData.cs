@@ -7,4 +7,6 @@ public class PlayerData : ScriptableObject
 {
     public string CharacterName;
     public BaseClass PlayerUnitClass;
+
+    public List<CombatMoveType> CharacterSpecificMoves;
 }
