@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScrivenerProject Identifier="72184BE4-3CE5-4D96-A5EA-48917D46ABD6" Version="2.0" Creator="SCRMAC-3.1.5-12258" Device="Abigails-MacBook-Pro" Author="Abigail Yaffe" Modified="2020-03-13 20:37:36 -0400" ModID="DB80BC96-ED64-42DD-BADB-B027E9669239">
+    <Binder>
+        <BinderItem UUID="84D251B3-C9E7-4A24-9313-EC5184124CF7" Type="DraftFolder" Created="2020-02-16 18:58:44 -0500" Modified="2020-02-16 18:58:44 -0500">
+            <Title>Draft</Title>
+            <MetaData>
+                <IncludeInCompile>Yes</IncludeInCompile>
+            </MetaData>
+            <Children>
+                <BinderItem UUID="CD51A406-F290-441B-9638-0D3AA905AA47" Type="Text" Created="2020-02-16 19:00:49 -0500" Modified="2020-03-10 00:13:12 -0400">
+                    <Title>Major Outline</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>302,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="6A711D89-60B7-4F80-AB09-8F86D66FFC20" Type="Text" Created="2020-02-19 11:17:47 -0500" Modified="2020-02-21 11:09:27 -0500">
+                    <Title>Locations</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>2065,6</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="2756B0F8-71B9-4087-91A2-9B10AF6CAEE6" Type="Folder" Created="2020-02-19 11:15:06 -0500" Modified="2020-02-19 11:15:09 -0500">
+                    <Title>Carnie Corcoran</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>E0572D6B-8C0F-4B84-B134-82C9C44BFACF</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
+                    <Children>
+                        <BinderItem UUID="7F999A02-2CDC-47ED-BAC9-D097BAE482C5" Type="Text" Created="2020-02-18 14:33:52 -0500" Modified="2020-03-09 18:38:29 -0400">
+                            <Title>Carnie Corcoran</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>845,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem UUID="E0572D6B-8C0F-4B84-B134-82C9C44BFACF" Type="Text" Created="2020-02-19 11:15:14 -0500" Modified="2020-03-13 18:10:14 -0400">
+                            <Title>Drive Desc</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>2534,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="B6CDA89F-36F0-4A7C-ADCD-D5AE76674648" Type="Folder" Created="2020-02-21 12:42:01 -0500" Modified="2020-02-21 12:42:21 -0500">
+                    <Title>Magus Liu</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <Children>
+                        <BinderItem UUID="66C3E888-0974-403E-AF93-A6561B3A48B0" Type="Text" Created="2020-02-21 12:44:04 -0500" Modified="2020-03-13 17:27:34 -0400">
+                            <Title>Drive Desc</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,1128</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="024B522D-0FFF-452E-89CB-7E1AEA3FC4E9" Type="Folder" Created="2020-02-21 12:34:16 -0500" Modified="2020-02-21 12:34:20 -0500">
+                    <Title>Vesuvius Rex</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <Children>
+                        <BinderItem UUID="D52E92BA-B4EE-48B2-BA9B-F1685209A160" Type="Text" Created="2020-03-09 18:54:16 -0400" Modified="2020-03-13 15:24:51 -0400">
+                            <Title>Drive Desc</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>484,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="0BB22C63-3C98-4ED7-8FE6-F240A4B51C99" Type="Folder" Created="2020-02-21 12:34:22 -0500" Modified="2020-02-21 12:34:24 -0500">
+                    <Title>Carmeline Iodine</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>E7274429-0D30-4EC8-BCF7-18431424C82E</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
+                    <Children>
+                        <BinderItem UUID="E7274429-0D30-4EC8-BCF7-18431424C82E" Type="Text" Created="2020-02-21 12:48:29 -0500" Modified="2020-03-02 15:37:00 -0500">
+                            <Title>Drive Desc</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>272,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="4A7B6B53-69BC-4641-BB7A-4EBB07514EB2" Type="Folder" Created="2020-02-21 12:34:27 -0500" Modified="2020-02-21 12:34:38 -0500">
+                    <Title>Ernie Ofka</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <CorkboardAndOutliner>
+                        <SelectedSubdocumentUUIDs>65E99B32-F827-4BFC-BF8C-3F240F04542A</SelectedSubdocumentUUIDs>
+                    </CorkboardAndOutliner>
+                    <Children>
+                        <BinderItem UUID="65E99B32-F827-4BFC-BF8C-3F240F04542A" Type="Text" Created="2020-02-21 12:45:39 -0500" Modified="2020-03-13 20:37:36 -0400">
+                            <Title>Drive Desc</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>94,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="79BE56D9-2F6D-4694-9DE7-19D42D932DD2" Type="Folder" Created="2020-02-21 12:34:41 -0500" Modified="2020-02-21 12:35:38 -0500">
+                    <Title>Homer Stytax</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <Children>
+                        <BinderItem UUID="8D463601-4B33-45EC-BE52-53AB2B1CBDFE" Type="Text" Created="2020-02-21 12:44:35 -0500" Modified="2020-03-13 17:29:42 -0400">
+                            <Title>Drive Desc</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,1798</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="C2AD83FC-0CA4-422D-86B7-AC7EBF5BC6D1" Type="Folder" Created="2020-02-21 12:35:41 -0500" Modified="2020-02-21 12:35:43 -0500">
+                    <Title>Urania Toaple</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <Children>
+                        <BinderItem UUID="DA96CB2F-F91B-4D18-9FDC-B98CED55569B" Type="Text" Created="2020-02-21 12:45:01 -0500" Modified="2020-03-13 17:26:33 -0400">
+                            <Title>Drive Desc</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>0,1713</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem UUID="CC1C3613-203A-419D-A45F-3DC95B644158" Type="Folder" Created="2020-02-21 12:43:55 -0500" Modified="2020-02-21 12:43:58 -0500">
+                    <Title>Bobby Bellows</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <Children>
+                        <BinderItem UUID="7701C88F-FA73-4A2F-A6CC-9E296D643578" Type="Text" Created="2020-02-21 12:45:19 -0500" Modified="2020-03-13 15:39:35 -0400">
+                            <Title>Drive Desc</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>119,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+            </Children>
+        </BinderItem>
+        <BinderItem UUID="BBCA136A-AF8C-4D1F-B6B4-11641C0DD017" Type="ResearchFolder" Created="2020-02-16 18:58:44 -0500" Modified="2020-02-16 18:58:44 -0500">
+            <Title>Research</Title>
+            <MetaData>
+                <IncludeInCompile>Yes</IncludeInCompile>
+            </MetaData>
+        </BinderItem>
+        <BinderItem UUID="7533FE65-B6CC-45FD-AFE6-01C418F362C4" Type="TrashFolder" Created="2020-02-16 18:58:44 -0500" Modified="2020-02-16 18:58:44 -0500">
+            <Title>Trash</Title>
+            <MetaData>
+                <IncludeInCompile>Yes</IncludeInCompile>
+            </MetaData>
+            <Children>
+                <BinderItem UUID="2E96743A-09BC-4965-B06F-29FC771EDC90" Type="Text" Created="2020-02-16 18:58:44 -0500" Modified="2020-02-16 19:00:24 -0500">
+                    <Title>Descriptions</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>145,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="5ED69811-463F-4272-9C63-ACE8B781E52D" Type="Text" Created="2020-02-21 12:34:06 -0500" Modified="2020-02-21 12:34:06 -0500">
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+                <BinderItem UUID="36D3F5B6-2947-40D8-924A-2C46BA599772" Type="Text" Created="2020-02-21 13:26:56 -0500" Modified="2020-02-21 14:55:12 -0500">
+                    <Title>Academic Outline</Title>
+                    <MetaData>
+                        <IncludeInCompile>Yes</IncludeInCompile>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>84,0</TextSelection>
+                    </TextSettings>
+                </BinderItem>
+            </Children>
+        </BinderItem>
+    </Binder>
+    <Collections>
+        <Collection Type="Binder" ID="BBE4BDB6-C996-414E-823E-6969D748989E" Color="0.150563 0.150563 0.150563">
+            <Title>Binder</Title>
+        </Collection>
+        <Collection Type="RecentSearch" ID="8DED898D-D674-4224-AD98-63F10AF8D5A9" Color="0.190667 0.172702 0.216529">
+            <Title>Search Results</Title>
+        </Collection>
+    </Collections>
+    <SectionTypes>
+        <TypeDefinitions>
+            <Type ID="76A20B25-65EC-4E4E-8B79-EA9B25149223">Heading</Type>
+            <Type ID="A1BCA30B-4283-4196-A7B0-EC26AB5B8AEA">Sub-Heading</Type>
+            <Type ID="63BD07B7-DF77-41F9-8AD6-0513B8320C06">Section</Type>
+        </TypeDefinitions>
+        <LevelTypes>
+            <Folders>
+                <Type>76A20B25-65EC-4E4E-8B79-EA9B25149223</Type>
+            </Folders>
+            <Containers>
+                <Type>63BD07B7-DF77-41F9-8AD6-0513B8320C06</Type>
+            </Containers>
+            <Files>
+                <Type>63BD07B7-DF77-41F9-8AD6-0513B8320C06</Type>
+            </Files>
+        </LevelTypes>
+    </SectionTypes>
+    <LabelSettings>
+        <Title>Label</Title>
+        <DefaultLabelID>-1</DefaultLabelID>
+        <Labels>
+            <Label ID="-1">No Label</Label>
+            <Label ID="0" Color="0.993495 0.701207 0.732587">Red</Label>
+            <Label ID="1" Color="0.995418 0.790946 0.652385">Orange</Label>
+            <Label ID="2" Color="0.997722 0.89273 0.652569">Yellow</Label>
+            <Label ID="3" Color="0.715855 0.948712 0.697692">Green</Label>
+            <Label ID="4" Color="0.702319 0.888276 0.974252">Blue</Label>
+            <Label ID="5" Color="0.957566 0.766747 0.999616">Purple</Label>
+        </Labels>
+    </LabelSettings>
+    <StatusSettings>
+        <Title>Status</Title>
+        <DefaultStatusID>-1</DefaultStatusID>
+        <StatusItems>
+            <Status ID="-1">No Status</Status>
+            <Status ID="0">To Do</Status>
+            <Status ID="1">In Progress</Status>
+            <Status ID="2">First Draft</Status>
+            <Status ID="3">Revised Draft</Status>
+            <Status ID="4">Final Draft</Status>
+            <Status ID="5">Done</Status>
+        </StatusItems>
+    </StatusSettings>
+    <ProjectTargets Notify="No">
+        <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2020-02-16 18:58:39 -0500" IgnoreDeadline="Yes">0</DraftTarget>
+        <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" NextResetDate="2020-03-14 01:00:00 -0400" ResetType="Time" ResetTime="00:00" DeterminedFromDeadline="No" WritingDays="" CanWriteOnDeadlineDate="No">0</SessionTarget>
+        <PreviousSession Words="30" Characters="296" Date="2020-03-13 20:18:30 -0400"/>
+    </ProjectTargets>
+    <RecentWritingHistory Date="2020-03-13 00:00:00 -0400">
+        <DraftWordCount>30</DraftWordCount>
+        <DraftCharCount>296</DraftCharCount>
+        <OtherWordCount>0</OtherWordCount>
+        <OtherCharCount>0</OtherCharCount>
+    </RecentWritingHistory>
+    <PrintSettings PaperSize="612.0,792.0" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="na-letter" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"/>
+</ScrivenerProject>

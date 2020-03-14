@@ -44,7 +44,7 @@ public class PickChar : MonoBehaviour
         selectedCharacters[1] = "C2";
         selectedCharacters[2] = "C3";
         selectedCharacters[3] = "C4";
-            activeStat[0].text = ourStatStorage.health[characterNumber].ToString();
+            activeStat[characterNumber].text = ourStatStorage.health[characterNumber].ToString();
             activeStat[1].text = ourStatStorage.stamina[characterNumber].ToString();
             activeStat[2].text = ourStatStorage.whamitude[characterNumber].ToString();
             activeStat[3].text = ourStatStorage.popularity[characterNumber].ToString();
